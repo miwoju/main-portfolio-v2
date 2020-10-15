@@ -133,7 +133,7 @@ const HomeIntro = () => {
             width: 350,
             transition: {
                 scale: { ease: "easeInOut" },
-                // fontSize: { duration: 0 },
+                duration: 0.6,
             },
         },
     };
