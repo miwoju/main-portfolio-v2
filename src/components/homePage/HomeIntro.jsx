@@ -123,7 +123,7 @@ const HomeIntro = () => {
             opacity: 1,
             y: 0,
             transition: {
-                opacity: { duration: 1.1 },
+                opacity: { duration: 1.2 },
                 delay: 0.3 + i * 0.2,
                 duration: 0.6,
             },
@@ -138,16 +138,16 @@ const HomeIntro = () => {
         },
     };
 
-    const navGridItemNameVar = {
-        hidden: {},
-        show: {},
+    const navGridItemTextVar = {
+        hidden: { opacity: 0 },
+        show: (i) => ({ opacity: 1, transition: { delay: 1 + i * 0.2 } }),
         hover: {
             scale: 4,
             fontWeight: 800,
             right: 30,
             bottom: -10,
             // color: "#fff",
-            transition: { duration: 0.2 },
+            transition: { duration: 0.15 },
         },
     };
 
@@ -192,7 +192,10 @@ const HomeIntro = () => {
                                     variants={navGridItemVar}
                                     custom={i}
                                 >
-                                    <motion.p variants={navGridItemNameVar}>
+                                    <motion.p
+                                        variants={navGridItemTextVar}
+                                        custom={i}
+                                    >
                                         {item}
                                     </motion.p>
                                 </NavGridItem>
