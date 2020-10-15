@@ -147,7 +147,7 @@ const HomeIntro = () => {
             right: 30,
             bottom: -10,
             // color: "#fff",
-            transition: { duration: 0.15 },
+            transition: { duration: 0.45 },
         },
     };
 
