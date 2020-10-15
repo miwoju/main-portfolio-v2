@@ -35,6 +35,7 @@ const NavGridItem = styled(motion.div)`
     margin: 4px;
     cursor: pointer;
     p {
+        user-select: none;
         position: absolute;
         margin: 4px;
         font-size: 1.6rem;
@@ -117,11 +118,15 @@ const HomeIntro = () => {
     };
 
     const navGridItemVar = {
-        hidden: { opacity: 0, y: 100 },
+        hidden: { opacity: 0, y: 200 },
         show: (i) => ({
             opacity: 1,
             y: 0,
-            transition: { delay: 0.3 + i * 0.2, duration: 0.6 },
+            transition: {
+                opacity: { duration: 1.1 },
+                delay: 0.3 + i * 0.2,
+                duration: 0.6,
+            },
         }),
         hover: {
             scale: 1.1,
