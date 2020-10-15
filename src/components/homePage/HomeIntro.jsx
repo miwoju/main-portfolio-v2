@@ -74,9 +74,9 @@ const HomeIntro = () => {
                 transition: { delay: 0.55, duration: 0.6, ease: "easeOut" },
             }),
             nameControls.start({
-                y: -210,
+                y: -220,
                 color: "#000",
-                transition: { delay: 0.65, duration: 0.4, ease: "easeInOut" },
+                transition: { delay: 0.65, duration: 0.5, ease: "easeInOut" },
             }),
             subtextControls.start({
                 display: "none",
