@@ -132,7 +132,7 @@ const HomeIntro = () => {
             scale: 1.1,
             width: 350,
             transition: {
-                scale: { ease: "easeInOut" },
+                scale: { ease: "easeOut" },
                 duration: 0.6,
             },
         },
@@ -147,7 +147,7 @@ const HomeIntro = () => {
             right: 30,
             bottom: -10,
             // color: "#fff",
-            transition: { duration: 0.45 },
+            transition: { duration: 0.4 },
         },
     };
 
