@@ -4,6 +4,9 @@ import { motion, useAnimation } from "framer-motion";
 import styled from "styled-components";
 import { Container, Flex } from "../../styles/globalStyles";
 
+import selfie from "../../assets/images/about-img.jpg";
+import projectImg from "../../assets/images/projects-img.png";
+
 const StyledHomeIntro = styled.div``;
 
 const IntroHeader = styled(motion.header)`
@@ -33,13 +36,27 @@ const NavGridItem = styled(motion.div)`
     width: 250px;
     border: 2px solid black;
     margin: 4px;
+    display: flex;
     cursor: pointer;
+    background-color: #fff;
     p {
         user-select: none;
         position: absolute;
         margin: 4px;
         font-size: 1.6rem;
     }
+`;
+
+const IMG = styled(motion.img)`
+    align-self: center;
+    width: 220px;
+    margin: auto;
+`;
+
+const IMGWrapper = styled.div`
+    overflow: hidden;
+    width: 350px;
+    display: flex;
 `;
 
 const HomeIntro = () => {
@@ -54,19 +71,19 @@ const HomeIntro = () => {
     const subtextControls = useAnimation();
 
     useEffect(async () => {
-        await Promise.all([
-            backdropControls.start("show"),
-            nameControls.start("show"),
-            nameControls.start({
-                color: "#fff",
-                transition: { delay: 1.1 },
-            }),
-            subtextControls.start("show"),
-            subtextControls.start({
-                color: "#fff",
-                transition: { delay: 1.1 },
-            }),
-        ]);
+        // await Promise.all([
+        //     backdropControls.start("show"),
+        //     nameControls.start("show"),
+        //     nameControls.start({
+        //         color: "#fff",
+        //         transition: { delay: 1.1 },
+        //     }),
+        //     subtextControls.start("show"),
+        //     subtextControls.start({
+        //         color: "#fff",
+        //         transition: { delay: 1.1 },
+        //     }),
+        // ]);
         await Promise.all([
             backdropControls.start({
                 height: "0vh",
@@ -131,6 +148,7 @@ const HomeIntro = () => {
         hover: {
             scale: 1.1,
             width: 350,
+            zIndex: 1,
             transition: {
                 scale: { ease: "easeOut" },
                 duration: 0.6,
@@ -150,6 +168,24 @@ const HomeIntro = () => {
             transition: { duration: 0.4 },
         },
     };
+
+    const imgMotion = {
+        hidden: { scale: 1 },
+        hover: {
+            scale: 1.2,
+            boxShadow: "4px 4px 4px rgba(0, 0, 0, 0.4)",
+            transition: {
+                boxShadow: { duration: 0.4 },
+                scale: { ease: "easeOut", duration: 0.4 },
+            },
+        },
+    };
+
+    const introNavGridItems = [
+        { title: "about", img: selfie },
+        { title: "projects", img: projectImg },
+        { title: "contact" },
+    ];
 
     return (
         <StyledHomeIntro>
@@ -184,7 +220,7 @@ const HomeIntro = () => {
                     </IntroHeader>
                     {displayNavGrid && (
                         <NavGrid>
-                            {["about", "projects", "contact"].map((item, i) => (
+                            {introNavGridItems.map(({ title, img }, i) => (
                                 <NavGridItem
                                     initial="hidden"
                                     animate="show"
@@ -192,11 +228,14 @@ const HomeIntro = () => {
                                     variants={navGridItemVar}
                                     custom={i}
                                 >
+                                    <IMGWrapper>
+                                        <IMG variants={imgMotion} src={img} />
+                                    </IMGWrapper>
                                     <motion.p
                                         variants={navGridItemTextVar}
                                         custom={i}
                                     >
-                                        {item}
+                                        {title}
                                     </motion.p>
                                 </NavGridItem>
                             ))}

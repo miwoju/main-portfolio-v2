@@ -34,6 +34,13 @@ const TextArea = styled.textarea`
     height: 300px;
 `;
 
+const Button = styled.button`
+    border: none;
+    padding: 15px;
+    align-self: center;
+    font-size: 14px;
+`;
+
 const HomeContact = ({}) => {
     return (
         <StyledHomeContact>
@@ -61,6 +68,7 @@ const HomeContact = ({}) => {
                             placeholder="Comments"
                             className="input"
                         ></TextArea>
+                        <Button type="submit">SUBMIT</Button>
                     </Form>
                 </Flex>
             </Container>

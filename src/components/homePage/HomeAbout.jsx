@@ -137,15 +137,15 @@ const HomeAbout = () => {
     const [containerPosition, setContainerPosition] = useState("right");
     const [ref, inView] = useInView();
 
-    const handleSelect = (name) => {
+    const handleSelect = (index) => {
         setContainerPosition("left");
-        setSelected(name);
+        setSelected(index);
     };
 
     const handleClick = (direction) => {
         setContainerPosition(direction);
         if (selected === null) {
-            setSelected("HTML");
+            setSelected(0);
         } else {
             /**Added later */
             setSelected(null);
@@ -153,16 +153,66 @@ const HomeAbout = () => {
     };
     // const [ref, inView] = useInView();
     const skillsList = [
-        { name: "HTML", progress: 95 },
-        { name: "CSS", progress: 90 },
-        { name: "React", progress: 90 },
-        { name: "Javascript", progress: 85 },
-        { name: "Firebase", progress: 70 },
-        { name: "Express", progress: 65 },
-        { name: "Styled Components", progress: 90 },
-        { name: "Material UI", progress: 85 },
-        { name: "Framer Motion", progress: 80 },
-        { name: "Node.js", progress: 65 },
+        {
+            name: "CSS, HTML, Javascript",
+            progress: 95,
+            content:
+                "The basics of web development, utilizing these are a breeze.",
+        },
+        {
+            name: "React",
+            progress: 90,
+            content:
+                "As a long time React developer, I am very knowledgeable with React Hooks and React Context for state management.",
+        },
+        {
+            name: "Typescript",
+            progress: 85,
+            content:
+                "I have picked up Typescript quite recently, and I understand more than enough to utilize it.",
+        },
+        {
+            name: "Firebase",
+            progress: 85,
+            content:
+                "Fireebase has been my friend for many projects. This includes hosting, cloud storage, and tracking database for users and information alike.",
+        },
+        {
+            name: "Amazon AWS",
+            progress: 85,
+            content:
+                "Using S3 and Cloudfront CDN, I have managed massive projects with thousands of images for fast and cheap content delivery.",
+        },
+        {
+            name: "Styled Components",
+            progress: 95,
+            content:
+                "Styled Components are my all-time favorite. Whether it's for themes, Framer Motion, or just straight up styling, I am completely comfortable with this library.",
+        },
+        {
+            name: "Gatsby",
+            progress: 95,
+            content:
+                "Gatbsy has been my go-to framework. I am very well-aware of it's capabilities and use it for most of my recent applications.",
+        },
+        {
+            name: "Express",
+            progress: 80,
+            content:
+                "I have used Express.js a few times for old projects. I've forgot a lot about it but it's not very difficult to brush up.",
+        },
+        {
+            name: "Material UI",
+            progress: 100,
+            content:
+                "Very easy and straightforward framework. Although I don't like its outdated design, I am able to use it to create fast mock-up applications.",
+        },
+        {
+            name: "Framer Motion",
+            progress: 100,
+            content:
+                "I am obsessed with Framer Motion. As someone who loves UI, UX, and design, being able to design motions on web is the icing on the cake. I am no stranger to this animation library.",
+        },
     ];
 
     const skillsContainerVar = {
@@ -243,10 +293,10 @@ const HomeAbout = () => {
                             <SkillProgress
                                 whileHover={{ scale: 1.02 }}
                                 key={index}
-                                onClick={() => handleSelect(name)}
+                                onClick={() => handleSelect(index)}
                                 ref={index === 5 ? ref : null}
                                 style={
-                                    selected === name
+                                    selected === index
                                         ? {
                                               boxShadow:
                                                   "0 0 0 3px rgba(0, 0, 0, 1)",
@@ -263,7 +313,9 @@ const HomeAbout = () => {
                                     className="progress-bar"
                                     style={{
                                         color:
-                                            selected === name ? "#000" : "#fff",
+                                            selected === index
+                                                ? "#000"
+                                                : "#fff",
                                     }}
                                 >
                                     <p>{name}</p>
@@ -296,20 +348,11 @@ const HomeAbout = () => {
                             hard.
                         </Content>
                     </InfoContainer>
-                    {selected && containerPosition === "left" && (
+                    {selected !== null && containerPosition === "left" && (
                         <InfoContainer skills>
-                            <Label>{selected}</Label>
+                            <Label>{skillsList[selected].name}</Label>
                             <Content skills>
-                                Lorem ipsum dolor sit amet, consectetur
-                                adipiscing elit, sed do eiusmod tempor
-                                incididunt ut labore et dolore magna aliqua. Ut
-                                enim ad minim veniam, quis nostrud exercitation
-                                ullamco laboris nisi ut aliquip ex ea commodo
-                                consequat. Duis aute irure dolor in
-                                reprehenderit in voluptate velit esse cillum
-                                dolore eu fugiat nulla pariatur. Excepteur sint
-                                occaecat cupidatat non proident, sunt in culpa
-                                qui officia deserunt mollit anim id est laborum.
+                                {skillsList[selected].content}
                             </Content>
                         </InfoContainer>
                     )}
