@@ -155,19 +155,19 @@ const HomeAbout = () => {
     const skillsList = [
         {
             name: "CSS, HTML, Javascript",
-            progress: 95,
+            progress: 100,
             content:
                 "The basics of web development, utilizing these are a breeze.",
         },
         {
             name: "React",
-            progress: 90,
+            progress: 95,
             content:
                 "As a long time React developer, I am very knowledgeable from React Hooks to React Context for state management.",
         },
         {
             name: "Typescript",
-            progress: 85,
+            progress: 90,
             content:
                 "I have picked up Typescript quite recently, and I understand more than enough to utilize it to its full potential.",
         },
@@ -181,7 +181,7 @@ const HomeAbout = () => {
             name: "Amazon AWS",
             progress: 85,
             content:
-                "Using S3 and Cloudfront CDN, I have managed massive projects with thousands of images for fast and cheap content delivery.",
+                "Using S3 and Cloudfront CDN, I have managed massive projects with thousands of images for fast and cheap content delivery. That includes my Genshin Wish Simulator! It delivers hundreds of assets from characters and weapons and UI from my simulator to internationally all around the globe.",
         },
         {
             name: "Styled Components",
@@ -254,7 +254,7 @@ const HomeAbout = () => {
         damping: 19,
     };
     return (
-        <StyledHomeAbout>
+        <StyledHomeAbout id="about">
             <Container>
                 <SectionHeader gridArea="header">ABOUT</SectionHeader>
                 <Flex

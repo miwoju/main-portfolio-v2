@@ -30,7 +30,7 @@ const NavGrid = styled.div`
     align-items: center;
     /* margin-top: 80px; */
 `;
-const NavGridItem = styled(motion.div)`
+const NavGridItem = styled(motion.a)`
     position: relative;
     height: 350px;
     width: 250px;
@@ -39,11 +39,13 @@ const NavGridItem = styled(motion.div)`
     display: flex;
     cursor: pointer;
     background-color: #fff;
+    justify-content: center;
     p {
         user-select: none;
         position: absolute;
         margin: 4px;
         font-size: 1.6rem;
+        color: #000;
     }
 `;
 
@@ -169,7 +171,19 @@ const HomeIntro = () => {
         },
     };
 
-    const imgMotion = {
+    const contactMotionVar = {
+        hidden: { scale: 1, opacity: 0 },
+        hover: {
+            scale: 1.5,
+            opacity: 1,
+            transition: {
+                boxShadow: { duration: 0.4 },
+                scale: { ease: "easeOut", duration: 0.4 },
+            },
+        },
+    };
+
+    const imgMotionVar = {
         hidden: { scale: 1 },
         hover: {
             scale: 1.2,
@@ -222,15 +236,33 @@ const HomeIntro = () => {
                         <NavGrid>
                             {introNavGridItems.map(({ title, img }, i) => (
                                 <NavGridItem
+                                    href={`#${title}`}
                                     initial="hidden"
                                     animate="show"
                                     whileHover="hover"
                                     variants={navGridItemVar}
                                     custom={i}
                                 >
-                                    <IMGWrapper>
-                                        <IMG variants={imgMotion} src={img} />
-                                    </IMGWrapper>
+                                    {title !== "contact" ? (
+                                        <IMGWrapper>
+                                            <IMG
+                                                variants={imgMotionVar}
+                                                src={img}
+                                            />
+                                        </IMGWrapper>
+                                    ) : (
+                                        <motion.p
+                                            variants={contactMotionVar}
+                                            style={{
+                                                alignSelf: "center",
+                                                fontSize: 30,
+                                                fontweight: "bold",
+                                                color: "#4b4b4b",
+                                            }}
+                                        >
+                                            Hi there!
+                                        </motion.p>
+                                    )}
                                     <motion.p
                                         variants={navGridItemTextVar}
                                         custom={i}

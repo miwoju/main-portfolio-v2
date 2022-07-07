@@ -42,7 +42,7 @@ const IMG = styled.img`
 
 const HomeProjects = () => {
     return (
-        <StyledHomeProjects>
+        <StyledHomeProjects id="projects">
             <Container>
                 <Flex center column fullHeight>
                     <SectionHeader>Projects</SectionHeader>

@@ -43,7 +43,7 @@ const Button = styled.button`
 
 const HomeContact = ({}) => {
     return (
-        <StyledHomeContact>
+        <StyledHomeContact id="contact">
             <Container>
                 <Flex fullHeight center column>
                     <SectionHeader
