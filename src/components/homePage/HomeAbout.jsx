@@ -163,13 +163,13 @@ const HomeAbout = () => {
             name: "React",
             progress: 90,
             content:
-                "As a long time React developer, I am very knowledgeable with React Hooks and React Context for state management.",
+                "As a long time React developer, I am very knowledgeable from React Hooks to React Context for state management.",
         },
         {
             name: "Typescript",
             progress: 85,
             content:
-                "I have picked up Typescript quite recently, and I understand more than enough to utilize it.",
+                "I have picked up Typescript quite recently, and I understand more than enough to utilize it to its full potential.",
         },
         {
             name: "Firebase",
@@ -198,8 +198,7 @@ const HomeAbout = () => {
         {
             name: "Express",
             progress: 80,
-            content:
-                "I have used Express.js a few times for old projects. I've forgot a lot about it but it's not very difficult to brush up.",
+            content: "I have used Express.js a few times for old projects.",
         },
         {
             name: "Material UI",
@@ -251,7 +250,7 @@ const HomeAbout = () => {
 
     const spring = {
         type: "spring",
-        stiffness: 270,
+        stiffness: 200,
         damping: 19,
     };
     return (
