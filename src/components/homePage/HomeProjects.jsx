@@ -23,7 +23,17 @@ const Project = styled(motion.a)`
     height: 250px;
 
     /**TEMP */
-    background: white;
+    /* background: white; */
+`;
+
+const Unproject = styled(motion.a)`
+    /* cursor: pointer; */
+    /* border: 1px solid black; */
+    width: 350px;
+    height: 250px;
+
+    /**TEMP */
+    /* background: white; */
 `;
 
 const IMG = styled.img`
@@ -47,14 +57,14 @@ const HomeProjects = () => {
                                 Genshin Wish Simulator
                             </p>
                         </Project>
-                        <Project whileHover={{ scale: 1.05 }}></Project>
-                        <Project whileHover={{ scale: 1.05 }}></Project>
-                        <Project whileHover={{ scale: 1.05 }}></Project>
-                        <Project whileHover={{ scale: 1.05 }}></Project>
-                        <Project whileHover={{ scale: 1.05 }}></Project>
-                        <Project whileHover={{ scale: 1.05 }}></Project>
-                        <Project whileHover={{ scale: 1.05 }}></Project>
-                        <Project whileHover={{ scale: 1.05 }}></Project>
+                        <Unproject whileHover={{ scale: 1.05 }}></Unproject>
+                        <Unproject whileHover={{ scale: 1.05 }}></Unproject>
+                        <Unproject whileHover={{ scale: 1.05 }}></Unproject>
+                        <Unproject whileHover={{ scale: 1.05 }}></Unproject>
+                        <Unproject whileHover={{ scale: 1.05 }}></Unproject>
+                        <Unproject whileHover={{ scale: 1.05 }}></Unproject>
+                        <Unproject whileHover={{ scale: 1.05 }}></Unproject>
+                        <Unproject whileHover={{ scale: 1.05 }}></Unproject>
                     </ProjectsGrid>
                 </Flex>
             </Container>

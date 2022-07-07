@@ -71,19 +71,19 @@ const HomeIntro = () => {
     const subtextControls = useAnimation();
 
     useEffect(async () => {
-        // await Promise.all([
-        //     backdropControls.start("show"),
-        //     nameControls.start("show"),
-        //     nameControls.start({
-        //         color: "#fff",
-        //         transition: { delay: 1.1 },
-        //     }),
-        //     subtextControls.start("show"),
-        //     subtextControls.start({
-        //         color: "#fff",
-        //         transition: { delay: 1.1 },
-        //     }),
-        // ]);
+        await Promise.all([
+            backdropControls.start("show"),
+            nameControls.start("show"),
+            nameControls.start({
+                color: "#fff",
+                transition: { delay: 1.1 },
+            }),
+            subtextControls.start("show"),
+            subtextControls.start({
+                color: "#fff",
+                transition: { delay: 1.1 },
+            }),
+        ]);
         await Promise.all([
             backdropControls.start({
                 height: "0vh",
