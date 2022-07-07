@@ -39,6 +39,14 @@ const Button = styled.button`
     padding: 15px;
     align-self: center;
     font-size: 14px;
+    cursor: pointer;
+    background-color: ${(props) => props.theme.secondary};
+    color: #fff;
+    font-weight: bolder;
+    &:hover {
+        background-color: #fff;
+        color: #000;
+    }
 `;
 
 const HomeContact = ({}) => {
