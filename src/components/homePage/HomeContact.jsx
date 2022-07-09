@@ -4,7 +4,9 @@ import styled from "styled-components";
 import { Container, Flex } from "../../styles/globalStyles";
 import SectionHeader from "../SectionHeader";
 
-const StyledHomeContact = styled.div`
+import { motion } from "framer-motion";
+
+const StyledHomeContact = styled.section`
     padding: 100px 0;
     background-color: ${(props) => props.theme.primary};
     /* color: ${(props) => props.theme.textInverse}; */
@@ -34,7 +36,7 @@ const TextArea = styled.textarea`
     height: 300px;
 `;
 
-const Button = styled.button`
+const Button = styled(motion.button)`
     border: none;
     padding: 15px;
     align-self: center;
@@ -64,11 +66,17 @@ const HomeContact = ({}) => {
                     <Form>
                         <Input
                             placeholder="Name"
+                            for="name"
+                            name="name"
+                            id="name"
                             className="input"
                             type="text"
                         ></Input>
                         <Input
                             placeholder="Email"
+                            for="email"
+                            name="email"
+                            id="email"
                             className="input"
                             type="text"
                         ></Input>
@@ -76,7 +84,9 @@ const HomeContact = ({}) => {
                             placeholder="Comments"
                             className="input"
                         ></TextArea>
-                        <Button type="submit">SUBMIT</Button>
+                        <Button type="submit" whileHover={{ width: 100 }}>
+                            SUBMIT
+                        </Button>
                     </Form>
                 </Flex>
             </Container>

@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import CountUp from "react-countup";
 import { motion } from "framer-motion";
-
 import { ref, useInView } from "react-intersection-observer";
 
 //Styled components
@@ -10,7 +9,7 @@ import styled, { css } from "styled-components";
 import { Container, Flex } from "../../styles/globalStyles";
 import SectionHeader from "../SectionHeader";
 
-const StyledHomeAbout = styled.div`
+const StyledHomeAbout = styled.section`
     color: ${(props) => props.theme.textInverse};
     /* box-shadow: 4px 4px 16px 4px rgba(0, 0, 0, 0.25); */
 
@@ -256,7 +255,7 @@ const HomeAbout = () => {
     return (
         <StyledHomeAbout id="about">
             <Container>
-                <SectionHeader gridArea="header">ABOUT</SectionHeader>
+                <SectionHeader gridArea="header">About Me</SectionHeader>
                 <Flex
                     fullHeight
                     style={{

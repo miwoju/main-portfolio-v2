@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 //Pages
-import home from "./pages/home";
+import home from "./pages/Home";
 import notfound from "./pages/notfound";
 //Styled Components
 import { createGlobalStyle, ThemeProvider } from "styled-components";
@@ -10,6 +10,8 @@ import { normalize } from "styled-normalize";
 import Header from "./components/layout/Header";
 import Navigation from "./components/layout/Navigation";
 import Footer from "./components/layout/Footer";
+import { useGlobalStateContext } from "./components/context/globalContext";
+// import { GlobalProvider } from "./components/context/globalContext";
 
 const GlobalStyle = createGlobalStyle`
 ${normalize}
@@ -30,11 +32,21 @@ body {
   font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   overscroll-behavior: none;
   color: ${(props) => props.theme.text};
+  overflow: ${(props) => (props.isModalActive ? "hidden" : "auto")};
+  /**My Custom */
+  /**width: 100vw;
+  overflow-x: hidden; **/
+  a {
+    color: ${(props) => props.theme.secondary};
+    
+  }
 }
 `;
 
 function App() {
     const [toggleMenu, setToggleMenu] = useState(false);
+
+    const { isModalActive } = useGlobalStateContext();
     const darkTheme = {};
     const lightTheme = {
         //Blue
@@ -42,6 +54,7 @@ function App() {
         primaryHex: "27, 231, 255,",
         //Red
         secondary: "#fd5b78",
+        secondaryHex: "253, 91, 120,",
         background: "#edf6f9",
         // backgroundSecondary: "#006d77",
         text: "#504f54",
@@ -53,7 +66,7 @@ function App() {
     };
     return (
         <ThemeProvider theme={lightTheme}>
-            <GlobalStyle />
+            <GlobalStyle isModalActive={isModalActive} />
             <Router>
                 <Header toggleMenu={toggleMenu} setToggleMenu={setToggleMenu} />
                 <Navigation

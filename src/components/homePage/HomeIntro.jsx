@@ -1,13 +1,15 @@
 import React, { Fragment, useEffect, useState } from "react";
 import { motion, useAnimation } from "framer-motion";
+import { ref, useInView } from "react-intersection-observer";
+
 //Styled components
 import styled from "styled-components";
 import { Container, Flex } from "../../styles/globalStyles";
 
 import selfie from "../../assets/images/about-img.jpg";
-import projectImg from "../../assets/images/projects-img.png";
+import projectImg from "../../assets/images/genshin-img1.png";
 
-const StyledHomeIntro = styled.div``;
+const StyledHomeIntro = styled.section``;
 
 const IntroHeader = styled(motion.header)`
     display: flex;
@@ -24,13 +26,13 @@ const IntroBackdrop = styled(motion.div)`
     /* z-index: 1; */
 `;
 
-const NavGrid = styled.div`
+const CardGrid = styled.div`
     position: absolute;
     display: flex;
     align-items: center;
     /* margin-top: 80px; */
 `;
-const NavGridItem = styled(motion.a)`
+const CardGridItem = styled(motion.a)`
     position: relative;
     height: 350px;
     width: 250px;
@@ -40,7 +42,8 @@ const NavGridItem = styled(motion.a)`
     cursor: pointer;
     background-color: #fff;
     justify-content: center;
-    p {
+    transform-origin: 80% 80%;
+    .title {
         user-select: none;
         position: absolute;
         margin: 4px;
@@ -55,14 +58,31 @@ const IMG = styled(motion.img)`
     margin: auto;
 `;
 
-const IMGWrapper = styled.div`
-    overflow: hidden;
+const IMGBackdrop = styled(motion.div)`
+    position: absolute;
+    /* top: 0; */
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /* background-color: #e5989b; */
+    z-index: -1;
+    /* width: 100%; */
+    /* height: 100%; */
+`;
+
+const IMGWrapper = styled(motion.div)`
+    /* overflow: hidden; */
     width: 350px;
     display: flex;
+    /* background-color: red; */
+    margin: 14px 14px 14px 14px;
+    border: 1px solid transparent;
+    justify-content: center;
 `;
 
 const HomeIntro = () => {
-    const [displayNavGrid, setDisplayNavGrid] = useState(false);
+    const [displayCardGrid, setDisplayCardGrid] = useState(false);
+    const [ref, inView] = useInView({ rootMargin: "-400px" });
 
     const name = "Richard Shin";
     const description = ["A", "Full", "Stacks", "Web Developer"];
@@ -101,7 +121,7 @@ const HomeIntro = () => {
                 display: "none",
                 transition: { delay: 0.9 },
             }),
-            setDisplayNavGrid(true),
+            setDisplayCardGrid(true),
         ]);
     }, []);
 
@@ -136,21 +156,45 @@ const HomeIntro = () => {
         },
     };
 
-    const navGridItemVar = {
+    const CardGridItemVar = {
         hidden: { opacity: 0, y: 200 },
+        ending: (i) => ({
+            opacity: 0.8,
+            x: i * -250 + 200,
+            rotate: i * 15 + 15,
+            scale: 1.4,
+            boxShadow: "2px 2px 2px rgba(0, 0, 0, 0.1)",
+            zIndex: 5 - i,
+            border: "none",
+            transition: {
+                opacity: { ease: "easeOut", duration: 1, delay: 0.6 },
+                x: { duration: 0.3, delay: i * 0.1 },
+                rotate: {
+                    duration: 0.3,
+                    delay: 0.1 + i * 0.1,
+                },
+            },
+        }),
         show: (i) => ({
+            boxShadow: "0px 0px 0px rgba(0, 0, 0, 0)",
+            scale: 1,
             opacity: 1,
             y: 0,
+            x: 0,
+            rotate: 0,
+            border: "1px solid #a1a1a1",
             transition: {
                 opacity: { duration: 1.2 },
-                delay: 0.3 + i * 0.2,
+                delay: 0.2 + i * 0.2,
                 duration: 0.6,
             },
         }),
         hover: {
+            backgroundColor: "transparent",
             scale: 1.1,
             width: 350,
-            zIndex: 1,
+            zIndex: 10,
+            border: "none",
             transition: {
                 scale: { ease: "easeOut" },
                 duration: 0.6,
@@ -158,12 +202,12 @@ const HomeIntro = () => {
         },
     };
 
-    const navGridItemTextVar = {
+    const CardGridItemTextVar = {
         hidden: { opacity: 0 },
         show: (i) => ({ opacity: 1, transition: { delay: 1 + i * 0.2 } }),
         hover: {
             scale: 4,
-            fontWeight: 800,
+            fontWeight: 500,
             right: 30,
             bottom: -10,
             // color: "#fff",
@@ -183,11 +227,39 @@ const HomeIntro = () => {
         },
     };
 
-    const imgMotionVar = {
+    const imgBackdropVar = {
+        hidden: { scale: 1, rotate: 0 },
+        show: { height: 0, rotate: 0 },
+        ending: {
+            height: "100%",
+            rotate: 0,
+            transition: { ease: "easeOut" },
+        },
+        hover: {
+            height: "100%",
+            rotate: 45,
+            transition: { ease: "easeOut" },
+        },
+    };
+
+    const imgWrapperVar = {
+        show: {
+            borderColor: "transparent",
+            overflow: "show",
+            marginBottom: "14px",
+        },
+        ending: {
+            borderColor: "#4a4a4a",
+            overflow: "hidden",
+            marginBottom: "70px",
+        },
+    };
+
+    const imgVar = {
         hidden: { scale: 1 },
         hover: {
-            scale: 1.2,
-            boxShadow: "4px 4px 4px rgba(0, 0, 0, 0.4)",
+            scale: 1.25,
+            boxShadow: "4px 4px 4px rgba(0, 0, 0, 0.3)",
             transition: {
                 boxShadow: { duration: 0.4 },
                 scale: { ease: "easeOut", duration: 0.4 },
@@ -195,10 +267,10 @@ const HomeIntro = () => {
         },
     };
 
-    const introNavGridItems = [
-        { title: "about", img: selfie },
-        { title: "projects", img: projectImg },
-        { title: "contact" },
+    const introCardGridItems = [
+        { title: "about", img: selfie, bgColor: "#fcf6bd" },
+        { title: "projects", img: projectImg, bgColor: "#b2f7ef" },
+        { title: "contact", bgColor: "#f7d6e0" },
     ];
 
     return (
@@ -208,6 +280,7 @@ const HomeIntro = () => {
                 initial="hidden"
                 animate={backdropControls}
             ></IntroBackdrop>
+            {console.log(inView)}
             <Container vh>
                 <Flex center column fullHeight>
                     <IntroHeader
@@ -232,46 +305,68 @@ const HomeIntro = () => {
                             </motion.div>
                         ))}
                     </IntroHeader>
-                    {displayNavGrid && (
-                        <NavGrid>
-                            {introNavGridItems.map(({ title, img }, i) => (
-                                <NavGridItem
-                                    href={`#${title}`}
-                                    initial="hidden"
-                                    animate="show"
-                                    whileHover="hover"
-                                    variants={navGridItemVar}
-                                    custom={i}
-                                >
-                                    {title !== "contact" ? (
-                                        <IMGWrapper>
-                                            <IMG
-                                                variants={imgMotionVar}
-                                                src={img}
-                                            />
-                                        </IMGWrapper>
-                                    ) : (
-                                        <motion.p
-                                            variants={contactMotionVar}
-                                            style={{
-                                                alignSelf: "center",
-                                                fontSize: 30,
-                                                fontweight: "bold",
-                                                color: "#4b4b4b",
-                                            }}
-                                        >
-                                            Hi there!
-                                        </motion.p>
-                                    )}
-                                    <motion.p
-                                        variants={navGridItemTextVar}
+                    {displayCardGrid && (
+                        <CardGrid ref={ref}>
+                            {introCardGridItems.map(
+                                ({ title, img, bgColor }, i) => (
+                                    <CardGridItem
+                                        href={`#${title}`}
+                                        initial="hidden"
+                                        animate={inView ? "show" : "ending"}
+                                        whileHover={inView ? "hover" : "ending"}
+                                        variants={CardGridItemVar}
                                         custom={i}
+                                        style={{ zIndex: 5 - i }}
                                     >
-                                        {title}
-                                    </motion.p>
-                                </NavGridItem>
-                            ))}
-                        </NavGrid>
+                                        {/* {!inView && (
+                                        <Polaroid>
+                                            <span></span>
+                                        </Polaroid>
+                                    )} */}
+                                        <IMGBackdrop
+                                            variants={imgBackdropVar}
+                                            animate={!inView && "ending"}
+                                            style={{ backgroundColor: bgColor }}
+                                        />
+                                        <IMGWrapper variants={imgWrapperVar}>
+                                            {title !== "contact" ? (
+                                                <IMG
+                                                    variants={imgVar}
+                                                    src={img}
+                                                    style={
+                                                        inView
+                                                            ? {}
+                                                            : {
+                                                                  width: "120%",
+                                                              }
+                                                    }
+                                                />
+                                            ) : (
+                                                <motion.p
+                                                    variants={contactMotionVar}
+                                                    style={{
+                                                        alignSelf: "center",
+                                                        margin: "auto",
+                                                        fontSize: 40,
+                                                        fontweight: 700,
+                                                        color: "#4b4b4b",
+                                                    }}
+                                                >
+                                                    Hi there!
+                                                </motion.p>
+                                            )}
+                                        </IMGWrapper>
+                                        <motion.p
+                                            className="title"
+                                            variants={CardGridItemTextVar}
+                                            custom={i}
+                                        >
+                                            {title}
+                                        </motion.p>
+                                    </CardGridItem>
+                                )
+                            )}
+                        </CardGrid>
                     )}
                 </Flex>
             </Container>
