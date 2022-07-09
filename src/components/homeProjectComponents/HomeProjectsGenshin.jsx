@@ -31,7 +31,7 @@ const HomeProjectsGenshin = () => {
                 </a>
                 <br />
                 <a href="https://ty4coffee.thekima.com/" target="_blank">
-                    I want to see the site!
+                    Take me to the site!
                 </a>
             </HomeProjectsDetailedContent>
             <HomeProjectsDetailedContent italicize>

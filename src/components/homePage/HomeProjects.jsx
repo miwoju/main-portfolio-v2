@@ -255,7 +255,7 @@ const HomeProjects = () => {
                         </ProjectsOptions>
                         <ProjectsGrid>
                             {projectsList.map(
-                                ({ title, bgColor, href, content }) => (
+                                ({ title, bgColor, href, content }, index) => (
                                     <ProjectCard
                                         onClick={() =>
                                             globalDispatch({
@@ -263,6 +263,7 @@ const HomeProjects = () => {
                                                 payload: title,
                                             })
                                         }
+                                        key={index}
                                         initial="hidden"
                                         animate="show"
                                         variants={projectCardVar}
@@ -291,10 +292,6 @@ const HomeProjects = () => {
                                                 <IMG src={projectImg} />
                                                 <h4 className="title">
                                                     Genshin Wish Simulator
-                                                    {console.log(
-                                                        isModalActive ===
-                                                            title && "rotate"
-                                                    )}
                                                 </h4>
                                             </ProjectCardFront>
                                             <ProjectCardBack

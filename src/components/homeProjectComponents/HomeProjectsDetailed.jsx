@@ -57,7 +57,6 @@ const HomeProjectsDetailed = ({ children }) => {
     const handleOutsideClick = (e) => {
         e.preventDefault();
         e.stopPropagation();
-        console.log(e.target);
         globalDispatch({ type: "TOGGLE_MODAL", payload: false });
     };
 
@@ -101,7 +100,6 @@ const HomeProjectsDetailed = ({ children }) => {
                 <ModalContentTitle>{isModalActive}</ModalContentTitle>
                 <ModalContentContainer>{children}</ModalContentContainer>
             </ModalContent>
-            {/* {console.log(isModalActive)} */}
         </StyledHomeProjectsDetailed>
     );
 };

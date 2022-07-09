@@ -84,7 +84,11 @@ const HomeContact = ({}) => {
                             placeholder="Comments"
                             className="input"
                         ></TextArea>
-                        <Button type="submit" whileHover={{ width: 100 }}>
+                        <Button
+                            type="submit"
+                            onClick={(e) => e.preventDefault()}
+                            whileHover={{ width: 110 }}
+                        >
                             SUBMIT
                         </Button>
                     </Form>

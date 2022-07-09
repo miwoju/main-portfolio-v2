@@ -285,7 +285,6 @@ const HomeIntro = () => {
                 initial="hidden"
                 animate={backdropControls}
             ></IntroBackdrop>
-            {console.log(inView)}
             <Container vh>
                 <Flex center column fullHeight>
                     <IntroHeader
@@ -321,6 +320,7 @@ const HomeIntro = () => {
                                         whileHover={inView ? "hover" : "ending"}
                                         variants={CardGridItemVar}
                                         custom={i}
+                                        key={i}
                                         style={{ zIndex: 5 - i }}
                                     >
                                         {/* {!inView && (
