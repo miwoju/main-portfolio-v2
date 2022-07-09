@@ -30,8 +30,17 @@ const HomeProjectsGenshin = () => {
                     <HomeProjectsDetailedIMG src={genshinImg1} />
                 </a>
                 <br />
+                site:{" "}
                 <a href="https://ty4coffee.thekima.com/" target="_blank">
                     Take me to the site!
+                </a>
+                <br />
+                github:{" "}
+                <a
+                    href="https://github.com/miwoju/genshin-wish-simulator-gatsby"
+                    target="_blank"
+                >
+                    https://github.com/miwoju/genshin-wish-simulator-gatsby
                 </a>
             </HomeProjectsDetailedContent>
             <HomeProjectsDetailedContent italicize>

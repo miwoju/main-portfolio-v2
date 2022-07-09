@@ -14,8 +14,10 @@ const Home = () => {
             <HomeIntro />
             <HomeAbout />
             <HomeProjects />
-            {isModalActive === "Genshin Wish Simulator" && (
+            {isModalActive === "Genshin Wish Simulator" ? (
                 <HomeProjectsGenshin />
+            ) : (
+                isModalActive && <HomeProjectsDetailed />
             )}
             <HomeContact />
         </Fragment>

@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import styled from "styled-components";
 import { Container, Flex } from "../../styles/globalStyles";
 import SectionHeader from "../SectionHeader";
-import projectImg from "../../assets/images/genshin-img1.png";
+import genshinImg1 from "../../assets/images/genshin-img1.png";
 import HomeProjectsDetailed from "../homeProjectComponents/HomeProjectsDetailed";
 import {
     useGlobalStateContext,
@@ -47,6 +47,7 @@ const ProjectsGrid = styled.div`
     padding: 100px 40px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 25px;
     place-items: center;
     /* background-color: yellow; */
     /* border-radius: 20px; */
@@ -176,6 +177,25 @@ const projectsList = [
         bgColor: "#f7d6e0",
         href: "https://ty4coffee.thekima.com/",
         content: "Developed in Typescript under Gatsbyjs.",
+        github: "https://github.com/miwoju/genshin-wish-simulator-gatsby",
+        projectImg: genshinImg1,
+    },
+    {
+        title: "Styled-Components Snippets Extension",
+        // bgColor: "#fd5b78",
+        bgColor: "#fcf6bd",
+        href: "https://github.com/miwoju/styled-components-snippets",
+        content:
+            "Coded snippet syntax that I still personally use to this day.",
+        github: "https://github.com/miwoju/styled-components-snippets",
+    },
+    {
+        title: "TBA",
+        // bgColor: "#fd5b78",
+        bgColor: "#b2f7ef",
+        // href: "https://github.com/miwoju/styled-components-snippets",
+        content: "More coming soon!",
+        github: "",
     },
     // {
     //     title: "Genshin Wish Simulator",
@@ -255,7 +275,17 @@ const HomeProjects = () => {
                         </ProjectsOptions>
                         <ProjectsGrid>
                             {projectsList.map(
-                                ({ title, bgColor, href, content }, index) => (
+                                (
+                                    {
+                                        title,
+                                        bgColor,
+                                        href,
+                                        content,
+                                        github,
+                                        projectImg,
+                                    },
+                                    index
+                                ) => (
                                     <ProjectCard
                                         onClick={() =>
                                             globalDispatch({
@@ -289,9 +319,16 @@ const HomeProjects = () => {
                                                 <p className="content">
                                                     {content}
                                                 </p>
-                                                <IMG src={projectImg} />
+                                                {projectImg && (
+                                                    <IMG src={projectImg} />
+                                                )}
                                                 <h4 className="title">
-                                                    Genshin Wish Simulator
+                                                    <a
+                                                        href={github}
+                                                        target="_blank"
+                                                    >
+                                                        {title}
+                                                    </a>
                                                 </h4>
                                             </ProjectCardFront>
                                             <ProjectCardBack
