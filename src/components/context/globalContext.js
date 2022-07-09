@@ -26,17 +26,8 @@ const globalReducer = (state, action) => {
 };
 
 const initialState = {
-    isModalActive: "Genshin Wish Simulator",
+    isModalActive: false,
 };
-
-// {
-//     currentTheme:
-//         window.localStorage.getItem("theme") == null
-//             ? "dark"
-//             : window.localStorage.getItem("theme"),
-//     cursorType: false,
-//     cursorStyles: ["pointer", "hovered", "locked", "white"],
-// }
 
 //Provider
 export const GlobalProvider = ({ children }) => {

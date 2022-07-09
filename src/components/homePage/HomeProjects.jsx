@@ -172,7 +172,8 @@ const IMG = styled.img`
 const projectsList = [
     {
         title: "Genshin Wish Simulator",
-        bgColor: "#fd5b78",
+        // bgColor: "#fd5b78",
+        bgColor: "#f7d6e0",
         href: "https://ty4coffee.thekima.com/",
         content: "Developed in Typescript under Gatsbyjs.",
     },
@@ -198,12 +199,14 @@ const projectCardVar = {
         scale: 1,
         rotate: 0,
         x: 0,
+        y: 0,
         // boxShadow: "-2px -2px 3px 0px rgba(0, 0, 0, 0.4)",
     },
     hover: {
         scale: 1.05,
         rotate: -1,
-        x: -10,
+        x: 10,
+        y: -10,
         // boxShadow: "-4px -4px 8px 0px rgba(0, 0, 0, 0.3)",
     },
 };
