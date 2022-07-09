@@ -6,6 +6,7 @@ import {
     useGlobalDispatchContext,
     useGlobalStateContext,
 } from "../context/globalContext";
+import CloseButton from "../CloseButton";
 
 const StyledHomeProjectsDetailed = styled(motion.div)`
     display: block;
@@ -16,7 +17,7 @@ const StyledHomeProjectsDetailed = styled(motion.div)`
     bottom: 0;
     width: 100%;
     height: 100%;
-    z-index: 99;
+    z-index: 19;
     /* background-color: rgba(0, 0, 0, 0.4); */
     /* background-color: rgba(${(props) => props.theme.secondaryHex} 0.4); */
     background-color: ${(props) => props.theme.secondary};
@@ -95,6 +96,7 @@ const HomeProjectsDetailed = ({ children }) => {
                 animate="show"
                 onClick={(e) => e.stopPropagation()}
             >
+                <CloseButton />
                 <ModalContentTitle>{isModalActive}</ModalContentTitle>
                 <ModalContentContainer>{children}</ModalContentContainer>
             </ModalContent>

@@ -27,6 +27,10 @@ const ProjectsContainer = styled.div`
     grid-template-columns: 90px 1fr;
     border-radius: 25px;
     box-shadow: -1px -1px 3px 0px rgba(0, 0, 0, 0.1);
+    &:hover {
+        box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.1);
+        transform: translateY(-1px);
+    }
     /* padding: 0 100px; */
 `;
 

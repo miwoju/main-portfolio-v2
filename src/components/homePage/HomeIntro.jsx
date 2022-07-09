@@ -93,19 +93,19 @@ const HomeIntro = () => {
     const subtextControls = useAnimation();
 
     useEffect(async () => {
-        await Promise.all([
-            backdropControls.start("show"),
-            nameControls.start("show"),
-            nameControls.start({
-                color: "#fff",
-                transition: { delay: 1.1 },
-            }),
-            subtextControls.start("show"),
-            subtextControls.start({
-                color: "#fff",
-                transition: { delay: 1.1 },
-            }),
-        ]);
+        // await Promise.all([
+        //     backdropControls.start("show"),
+        //     nameControls.start("show"),
+        //     nameControls.start({
+        //         color: "#fff",
+        //         transition: { delay: 1.1 },
+        //     }),
+        //     subtextControls.start("show"),
+        //     subtextControls.start({
+        //         color: "#fff",
+        //         transition: { delay: 1.1 },
+        //     }),
+        // ]);
         await Promise.all([
             backdropControls.start({
                 height: "0vh",
@@ -257,12 +257,15 @@ const HomeIntro = () => {
 
     const imgVar = {
         hidden: { scale: 1 },
+        show: { rotate: 0 },
         hover: {
             scale: 1.25,
             boxShadow: "4px 4px 4px rgba(0, 0, 0, 0.3)",
+            rotate: [2, -2, 2],
             transition: {
                 boxShadow: { duration: 0.4 },
                 scale: { ease: "easeOut", duration: 0.4 },
+                rotate: { ease: "easeInOut", repeat: Infinity },
             },
         },
     };

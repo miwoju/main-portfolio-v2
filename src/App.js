@@ -46,11 +46,16 @@ body {
 function App() {
     const [toggleMenu, setToggleMenu] = useState(false);
 
+    // { title: "about", img: selfie, bgColor: "#fcf6bd" },
+    // { title: "projects", img: projectImg, bgColor: "#b2f7ef" },
+    // { title: "contact", bgColor: "#f7d6e0" },
+
     const { isModalActive } = useGlobalStateContext();
     const darkTheme = {};
     const lightTheme = {
         //Blue
-        primary: "#1be7ff",
+        // primary: "#1be7ff",
+        primary: "#b2f7ef",
         primaryHex: "27, 231, 255,",
         //Red
         secondary: "#fd5b78",
