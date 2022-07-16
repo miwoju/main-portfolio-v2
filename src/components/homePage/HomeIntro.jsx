@@ -93,37 +93,44 @@ const HomeIntro = () => {
     const nameControls = useAnimation();
     const subtextControls = useAnimation();
 
-    useEffect(async () => {
-        await Promise.all([
-            backdropControls.start("show"),
-            nameControls.start("show"),
-            nameControls.start({
-                color: "#fff",
-                transition: { delay: 1.1 },
-            }),
-            subtextControls.start("show"),
-            subtextControls.start({
-                color: "#fff",
-                transition: { delay: 1.1 },
-            }),
-        ]);
-        await Promise.all([
-            backdropControls.start({
-                height: "0vh",
-                bottom: 0,
-                transition: { delay: 0.55, duration: 0.6, ease: "easeOut" },
-            }),
-            nameControls.start({
-                y: -220,
-                color: "#000",
-                transition: { delay: 0.65, duration: 0.5, ease: "easeInOut" },
-            }),
-            subtextControls.start({
-                display: "none",
-                transition: { delay: 0.9 },
-            }),
-            setDisplayCardGrid(true),
-        ]);
+    useEffect(() => {
+        const startAnimation = async () => {
+            await Promise.all([
+                backdropControls.start("show"),
+                nameControls.start("show"),
+                nameControls.start({
+                    color: "#fff",
+                    transition: { delay: 1.1 },
+                }),
+                subtextControls.start("show"),
+                subtextControls.start({
+                    color: "#fff",
+                    transition: { delay: 1.1 },
+                }),
+            ]);
+            await Promise.all([
+                backdropControls.start({
+                    height: "0vh",
+                    bottom: 0,
+                    transition: { delay: 0.55, duration: 0.6, ease: "easeOut" },
+                }),
+                nameControls.start({
+                    y: -220,
+                    color: "#000",
+                    transition: {
+                        delay: 0.65,
+                        duration: 0.5,
+                        ease: "easeInOut",
+                    },
+                }),
+                subtextControls.start({
+                    display: "none",
+                    transition: { delay: 0.9 },
+                }),
+                setDisplayCardGrid(true),
+            ]);
+        };
+        startAnimation();
     }, []);
 
     const subtextVar = {

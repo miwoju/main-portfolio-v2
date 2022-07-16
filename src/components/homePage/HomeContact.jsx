@@ -66,7 +66,6 @@ const HomeContact = ({}) => {
                     <Form>
                         <Input
                             placeholder="Name"
-                            for="name"
                             name="name"
                             id="name"
                             className="input"
@@ -74,7 +73,6 @@ const HomeContact = ({}) => {
                         ></Input>
                         <Input
                             placeholder="Email"
-                            for="email"
                             name="email"
                             id="email"
                             className="input"
