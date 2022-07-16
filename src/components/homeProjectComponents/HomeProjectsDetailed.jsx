@@ -7,6 +7,7 @@ import {
     useGlobalStateContext,
 } from "../context/globalContext";
 import CloseButton from "../CloseButton";
+import { device } from "../../util/device";
 
 const StyledHomeProjectsDetailed = styled(motion.div)`
     display: block;
@@ -20,29 +21,33 @@ const StyledHomeProjectsDetailed = styled(motion.div)`
     z-index: 19;
     /* background-color: rgba(0, 0, 0, 0.4); */
     /* background-color: rgba(${(props) => props.theme.secondaryHex} 0.4); */
-    background-color: ${(props) => props.theme.secondary};
+    /* background-color: ${(props) => props.theme.secondary}; */
     background-color: #f7d6e0;
     text-align: center;
+    padding: 20px 0;
 `;
-
 const ModalContent = styled(motion.div)`
     /* background-color: #fefefe; */
     /* background-color: #0f0f10; */
-    background-color: #e5eaf4;
+    background-color: #faf9f9;
     /* color: #ababab; */
-    margin: 0 auto;
+    margin: 0px auto;
     padding: 40px 0;
     /* border: 1px solid #888; */
     height: 100%;
     overflow: auto; /* Enable scroll if needed */
 
     width: 80%; /* Could be more or less, depending on screen size */
-    border-radius: 20px;
+    @media ${device.small} {
+        width: 100%;
+    }
+    border-radius: 5px;
+    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
 `;
 const ModalContentContainer = styled.div`
     margin: 0 auto;
-    width: 800px;
-    /* height: 100%; */
+    /* width: 800px; */
+    max-width: 800px;
 `;
 
 const ModalContentTitle = styled.h3`
@@ -68,7 +73,7 @@ const HomeProjectsDetailed = ({ children }) => {
             opacity: 1,
             transition: {
                 ease: "easeInOut",
-                delay: 0.3,
+                delay: 0.2,
                 // delayChildren: 0.8,
             },
         },
@@ -79,7 +84,7 @@ const HomeProjectsDetailed = ({ children }) => {
             scale: 1,
             opacity: 1,
             y: 0,
-            transition: { ease: "easeInOut", duration: 0.1 },
+            transition: { ease: "easeInOut", duration: 0.05 },
         },
     };
 

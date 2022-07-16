@@ -3,6 +3,8 @@ import styled from "styled-components";
 import HomeProjectsDetailed from "./HomeProjectsDetailed";
 import { motion } from "framer-motion";
 
+
+
 //Images
 import genshinImg1 from "../../assets/images/genshin-img1.png";
 import genshinImg2 from "../../assets/images/genshin-img2.png";
@@ -51,7 +53,7 @@ const HomeProjectsGenshin = () => {
                 <p>
                     This project runs on Gatsbyjs and is written in Typescript.
                     From buttons to animations to modals & gacha logic, all were
-                    painstakingly designed from scratch. Enjoyed second of it!
+                    painstakingly designed from scratch. Enjoyed every second of it!
                 </p>
                 <p>
                     It is now since retired and runs privately, closed off from

@@ -11,7 +11,7 @@ const StyledCloseButton = styled.button`
     position: fixed;
     box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
     z-index: 99;
-    left: 80%;
+    right: 80%;
     top: 40px;
     cursor: pointer;
     &:hover {
@@ -23,9 +23,9 @@ const ButtonWrapper = styled.div`
     width: 100%;
     height: 100%;
     &:hover {
-        background-color: rgba(${(props) => props.theme.primaryHex} 0.4);
-        transform: rotate(180deg);
-        transition: transform 0.2s ease-out;
+        background-color: rgba(${(props) => props.theme.secondaryHex} 0.4);
+        transform: rotate(90deg);
+        transition: transform 0.2s ease-in-out;
     }
 
     div {

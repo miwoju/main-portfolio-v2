@@ -1,6 +1,7 @@
 import React, { Fragment, useEffect, useState } from "react";
 import { motion, useAnimation } from "framer-motion";
 import { ref, useInView } from "react-intersection-observer";
+import { Parallax, ParallaxLayer } from "@react-spring/parallax";
 
 //Styled components
 import styled from "styled-components";

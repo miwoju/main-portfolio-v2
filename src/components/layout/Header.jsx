@@ -17,7 +17,29 @@ const Logo = styled.div`
     font-size: 2.4rem;
     font-weight: 500;
     a {
-        color: ${props => props.theme.text};
+        color: ${(props) => props.theme.text};
+    }
+`;
+
+const NavList = styled.ul`
+    display: flex;
+    /* background-color: red; */
+    justify-content: space-between;
+`;
+
+const NavItem = styled.li`
+    list-style-type: none;
+    font-size: 1.8rem;
+    text-transform: capitalize;
+
+    a {
+        padding: 10px;
+        margin: 10px;
+        &:hover {
+            /* color: ${(props) => props.theme.text}; */
+            color: #fff;
+            background-color: ${(props) => props.theme.secondary};
+        }
     }
 `;
 
@@ -29,6 +51,20 @@ const Header = () => {
                     <Logo>
                         <Link to="/">The Kima</Link>
                     </Logo>
+                    <NavList>
+                        {/* <NavItem>
+                            <a href="#intro">Home</a>
+                        </NavItem> */}
+                        <NavItem>
+                            <a href="#about">about</a>
+                        </NavItem>
+                        <NavItem>
+                            <a href="#projects">projects</a>
+                        </NavItem>
+                        <NavItem>
+                            <a href="#contact">contact</a>
+                        </NavItem>
+                    </NavList>
                 </Flex>
             </Container>
         </StyledHeaderNav>

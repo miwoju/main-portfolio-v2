@@ -46,6 +46,7 @@ body {
 function App() {
     const [toggleMenu, setToggleMenu] = useState(false);
 
+    // https://coolors.co/palette/ff99c8-fcf6bd-d0f4de-a9def9-e4c1f9
     // { title: "about", img: selfie, bgColor: "#fcf6bd" },
     // { title: "projects", img: projectImg, bgColor: "#b2f7ef" },
     // { title: "contact", bgColor: "#f7d6e0" },

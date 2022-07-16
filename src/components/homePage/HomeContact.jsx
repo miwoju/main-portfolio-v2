@@ -58,10 +58,10 @@ const HomeContact = ({}) => {
                 <Flex fullHeight center column>
                     <SectionHeader
                         color="#000"
-                        subheader="Want to work on something together? Have a question?
+                        subheader="Want to work on something together? Have any questions?
                         Comments?"
                     >
-                        Say Hello
+                        Say Hi
                     </SectionHeader>
                     <Form>
                         <Input

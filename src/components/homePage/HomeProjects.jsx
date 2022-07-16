@@ -11,6 +11,7 @@ import {
     useGlobalStateContext,
     useGlobalDispatchContext,
 } from "../context/globalContext";
+import { device } from "../../util/device";
 
 const StyledHomeProjects = styled.section`
     padding: 100px;
@@ -29,7 +30,7 @@ const ProjectsContainer = styled.div`
     box-shadow: -1px -1px 3px 0px rgba(0, 0, 0, 0.1);
     &:hover {
         box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.1);
-        transform: translateY(-1px);
+        /* transform: translateY(-1px); */
     }
     /* padding: 0 100px; */
 `;
@@ -51,6 +52,12 @@ const ProjectsGrid = styled.div`
     place-items: center;
     /* background-color: yellow; */
     /* border-radius: 20px; */
+    @media ${device.large} {
+        grid-template-columns: 1fr 1fr;
+    }
+    @media ${device.small} {
+        grid-template-columns: 1fr;
+    }
 `;
 
 const ProjectCard = styled(motion.div)`
@@ -98,7 +105,6 @@ const ProjectCardInner = styled(motion.div)`
     &.rotate {
         transition: transform 0.6s;
         transform: rotateY(180deg) rotate(-90deg) translate(0px) scale(3);
-        z-index: 10;
     }
     &.rotate-back {
         transition: transform 0.6s;
@@ -186,7 +192,7 @@ const projectsList = [
         bgColor: "#fcf6bd",
         href: "https://github.com/miwoju/styled-components-snippets",
         content:
-            "Coded snippet syntax that I still personally use to this day.",
+            "Coded snippets syntax that I still personally use to this day.",
         github: "https://github.com/miwoju/styled-components-snippets",
     },
     {
@@ -194,7 +200,7 @@ const projectsList = [
         // bgColor: "#fd5b78",
         bgColor: "#b2f7ef",
         // href: "https://github.com/miwoju/styled-components-snippets",
-        content: "More coming soon!",
+        content: "Many more coming soon!",
         github: "",
     },
     // {
@@ -234,10 +240,10 @@ const projectCardVar = {
 const projectCardInnerVar = {
     hidden: {},
     show: {
-        boxShadow: "-2px -2px 3px 0px rgba(0, 0, 0, 0.4)",
+        boxShadow: "-2px -2px 3px 0px rgba(0, 0, 0, 0.2)",
     },
     hover: {
-        boxShadow: "-4px -4px 8px 0px rgba(0, 0, 0, 0.3)",
+        boxShadow: "-3px 3px 5px 0px rgba(0, 0, 0, 0.2)",
     },
 };
 
@@ -300,6 +306,11 @@ const HomeProjects = () => {
                                         whileHover={
                                             isModalActive ? "show" : "hover"
                                         }
+                                        style={
+                                            isModalActive === title
+                                                ? { zIndex: 10 }
+                                                : { zIndex: 1 }
+                                        }
                                         // href="https://ty4coffee.thekima.com/"
                                         // target="_blank"
                                     >
@@ -323,12 +334,12 @@ const HomeProjects = () => {
                                                     <IMG src={projectImg} />
                                                 )}
                                                 <h4 className="title">
-                                                    <a
+                                                    {/* <a
                                                         href={github}
                                                         target="_blank"
-                                                    >
-                                                        {title}
-                                                    </a>
+                                                    > */}
+                                                    {title}
+                                                    {/* </a> */}
                                                 </h4>
                                             </ProjectCardFront>
                                             <ProjectCardBack

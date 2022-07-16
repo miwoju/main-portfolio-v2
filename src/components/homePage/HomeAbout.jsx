@@ -8,6 +8,7 @@ import styled, { css } from "styled-components";
 
 import { Container, Flex } from "../../styles/globalStyles";
 import SectionHeader from "../SectionHeader";
+import { device } from "../../util/device";
 
 const StyledHomeAbout = styled.section`
     color: ${(props) => props.theme.textInverse};
@@ -110,6 +111,12 @@ const SkillProgress = styled(motion.div)`
     width: 520px;
     background-color: darkgray;
     white-space: nowrap;
+    @media ${device.medium} {
+        width: 450px;
+    }
+    @media ${device.small} {
+        width: 400px;
+    }
     /* box-shadow: ${(props) => props.theme.boxShadowClose}; */
     .progress-bar {
         height: 100%;
@@ -156,13 +163,13 @@ const HomeAbout = () => {
             name: "CSS, HTML, Javascript",
             progress: 100,
             content:
-                "The basics of web development, utilizing these are a breeze.",
+                "The basics of web development, utilizing these are a second-nature. I'm using to making complex css UI components",
         },
         {
             name: "React",
             progress: 95,
             content:
-                "As a long time React developer, I am very knowledgeable from React Hooks to React Context for state management.",
+                "As a long time React developer, I am very knowledgeable with React and React Native, from React Hooks to React Context for state management.",
         },
         {
             name: "Typescript",
@@ -172,13 +179,13 @@ const HomeAbout = () => {
         },
         {
             name: "Firebase",
-            progress: 85,
+            progress: 90,
             content:
-                "Fireebase has been my friend for many projects. This includes hosting, cloud storage, and tracking database for users and information alike.",
+                "Fireebase has been my friend for many projects. This includes hosting, cloud storage, cloud functions, and tracking database for users and information alike.",
         },
         {
             name: "Amazon AWS",
-            progress: 85,
+            progress: 90,
             content:
                 "Using S3 and Cloudfront CDN, I have managed massive projects with thousands of images for fast and cheap content delivery. That includes my Genshin Wish Simulator! It delivers hundreds of assets from characters and weapons and UI from my simulator to internationally all around the globe.",
         },
@@ -196,7 +203,7 @@ const HomeAbout = () => {
         },
         {
             name: "Express",
-            progress: 80,
+            progress: 85,
             content: "I have used Express.js a few times for old projects.",
         },
         {
@@ -285,8 +292,8 @@ const HomeAbout = () => {
                                 <i className="fas fa-chevron-right"></i>
                             </ArrowIcon>
                         )}
-                        <Label>Languages I've Learned</Label>
-                        <SubLabel>Rough Mastery of my Skills</SubLabel>
+                        <Label>Languages and Tools</Label>
+                        <SubLabel>Mastery</SubLabel>
                         {skillsList.map(({ name, progress }, index) => (
                             <SkillProgress
                                 whileHover={{ scale: 1.02 }}
