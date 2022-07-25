@@ -36,10 +36,10 @@ const ModalForm = styled(motion.form)`
     margin: 0px auto;
     padding: 40px 0;
     /* border: 1px solid #888; */
-    height: 700px;
     overflow: auto; /* Enable scroll if needed */
-
+    
     width: 500px; /* Could be more or less, depending on screen size */
+    min-height: 700px;
     @media ${device.small} {
         width: 100%;
     }
