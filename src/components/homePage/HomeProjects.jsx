@@ -5,7 +5,6 @@ import { motion } from "framer-motion";
 import styled from "styled-components";
 import { Container, Flex } from "../../styles/globalStyles";
 import SectionHeader from "../SectionHeader";
-import genshinImg1 from "../../assets/images/genshin-img1.png";
 import HomeProjectsDetailed from "../homeProjectComponents/HomeProjectsDetailed";
 import {
     useGlobalStateContext,
@@ -42,6 +41,48 @@ const ProjectsOptions = styled.div`
     display: flex;
     align-items: center;
     flex-direction: column;
+    /* justify-content: space-between; */
+`;
+
+const AddProjectButton = styled.button`
+    cursor: pointer;
+    background-color: #000;
+    color: #fff;
+    padding: 17px;
+    border: none;
+    border-radius: 100px;
+    position: relative;
+    display: grid;
+    &:before {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #fff;
+        height: 1.5px;
+        width: 13px;
+        content: "";
+    }
+    &:after {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #fff;
+        height: 13px;
+        width: 1.5px;
+        content: "";
+    }
+`;
+
+const ResetProjectButton = styled.button`
+    border: none;
+    font-size: 1rem;
+    padding: 5px;
+    justify-self: end;
+    margin-top: 40px;
+    cursor: pointer;
+    font-weight: 700;
 `;
 
 const ProjectsGrid = styled.div`
@@ -78,17 +119,6 @@ const ProjectCard = styled(motion.a)`
         font-weight: 700;
         color: #000;
     }
-
-    /**Card Flip Feature */
-    /* &:hover {
-        transition: transform 0.1s;
-
-        transform: scale(1.05) rotate(-1deg) translateX(-10px);
-    } */
-
-    /* backface-visibility: hidden; */
-    /**TEMP */
-    /* background: white; */
 `;
 
 const ProjectCardInner = styled(motion.div)`
@@ -130,37 +160,6 @@ const ProjectCardBack = styled(ProjectCardShared)`
     transform: rotateY(180deg);
 `;
 
-const Button = styled.button`
-    cursor: pointer;
-    background-color: #000;
-    color: #fff;
-    padding: 17px;
-    border: none;
-    border-radius: 100px;
-    position: relative;
-    display: grid;
-    &:before {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background-color: #fff;
-        height: 1.5px;
-        width: 13px;
-        content: "";
-    }
-    &:after {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background-color: #fff;
-        height: 13px;
-        width: 1.5px;
-        content: "";
-    }
-`;
-
 const Unproject = styled(motion.a)`
     /* cursor: pointer; */
     /* border: 1px solid black; */
@@ -175,71 +174,6 @@ const IMG = styled.img`
     align-self: center;
     width: 150px;
 `;
-
-const projectsList = [
-    {
-        title: "Genshin Wish Simulator",
-        // bgColor: "#fd5b78",
-        bgColor: "#f7d6e0",
-        href: "https://ty4coffee.thekima.com/",
-        content: "Developed in Typescript under Gatsbyjs.",
-        github: "https://github.com/miwoju/genshin-wish-simulator-gatsby",
-        projectImg: genshinImg1,
-        hasContent: true,
-    },
-    {
-        title: "Styled-Components Snippets Extension",
-        // bgColor: "#fd5b78",
-        bgColor: "#fcf6bd",
-        href: "https://github.com/miwoju/styled-components-snippets",
-        content:
-            "Coded snippets syntax that I still personally use to this day.",
-        github: "https://github.com/miwoju/styled-components-snippets",
-        hasContent: false,
-    },
-    {
-        title: "GG.ez Player Stats Tracker",
-        // bgColor: "#fd5b78",
-        bgColor: "#e4c1f9",
-        href: "https://ggez.thekima.com/",
-        content: "League of Legends(Riot API) player stats tracker.",
-        github: "https://github.com/miwoju/league-app-client",
-        hasContent: false,
-    },
-    {
-        title: "Mock Twitter Project",
-        // bgColor: "#fd5b78",
-        bgColor: "#a9def9",
-        href: "https://mocksocial.thekima.com/",
-        content:
-            "Mock twitter app with authentication, sign ups and log ins, and comment post/delete/edits.",
-        github: "https://github.com/miwoju/mock-twitter-client",
-        hasContent: false,
-    },
-    {
-        title: "TBA",
-        // bgColor: "#fd5b78",
-        bgColor: "#b2f7ef",
-        // href: "https://github.com/miwoju/styled-components-snippets",
-        content: "Many more coming soon!",
-        github: "",
-        hasContent: false,
-    },
-    // {
-    //     title: "Genshin Wish Simulator",
-    //     bgColor: "#00A1BE",
-    //     href: "https://ty4coffee.thekima.com/",
-    //     content:
-    //         "Developed in Typescript under Gatsbyjs. Chinese is also supported. From animations to gacha logic to storage.",
-    // },
-    // {
-    //     title: "Genshin Wish Simulator",
-    //     bgColor: "#8A6FBC",
-    //     href: "https://ty4coffee.thekima.com/",
-    //     content:
-    //         "Developed in Typescript under Gatsbyjs. Chinese is also supported. From animations to gacha logic to storage.",
-    // },
-];
 
 const projectCardVar = {
     hidden: {},
@@ -270,9 +204,10 @@ const projectCardInnerVar = {
 };
 
 const HomeProjects = () => {
+    // const [projectsList, setProjectsList] = useState(LIST_OF_PROJECTS);
     // const [isModalActive, globalDispatch] = useState(false);
 
-    const { isModalActive } = useGlobalStateContext();
+    const { isModalActive, projectsList } = useGlobalStateContext();
     const globalDispatch = useGlobalDispatchContext();
 
     // const handleClick = (title) => {
@@ -282,6 +217,7 @@ const HomeProjects = () => {
     //             payload: title,
     //         });
     // };
+    console.log(projectsList);
     return (
         <StyledHomeProjects id="projects">
             <Container>
@@ -299,7 +235,15 @@ const HomeProjects = () => {
                             >
                                 Memos
                             </p>
-                            <Button></Button>
+                            <AddProjectButton
+                                onClick={() => {
+                                    globalDispatch({
+                                        type: "TOGGLE_MODAL",
+                                        payload: "ADD_PROJECT",
+                                    });
+                                }}
+                            ></AddProjectButton>
+                            {/* <ResetProjectButton>Reset</ResetProjectButton> */}
                         </ProjectsOptions>
                         <ProjectsGrid>
                             {projectsList.map(

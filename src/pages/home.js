@@ -4,6 +4,7 @@ import HomeIntro from "../components/homePage/HomeIntro";
 import HomeProjects from "../components/homePage/HomeProjects";
 import HomeContact from "../components/homePage/HomeContact";
 import HomeProjectsDetailed from "../components/homeProjectComponents/HomeProjectsDetailed";
+import HomeAddProjectsModal from "../components/homeProjectComponents/HomeAddProjectsModal";
 import { useGlobalStateContext } from "../components/context/globalContext";
 import HomeProjectsGenshin from "../components/homeProjectComponents/HomeProjectsGenshin";
 
@@ -14,8 +15,12 @@ const Home = () => {
             <HomeIntro />
             <HomeAbout />
             <HomeProjects />
+            {/* <HomeAddProjectsModal /> */}
+
             {isModalActive === "Genshin Wish Simulator" ? (
                 <HomeProjectsGenshin />
+            ) : isModalActive === "ADD_PROJECT" ? (
+                <HomeAddProjectsModal />
             ) : (
                 isModalActive && <HomeProjectsDetailed />
             )}
