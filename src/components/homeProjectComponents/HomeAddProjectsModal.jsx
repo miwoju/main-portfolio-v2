@@ -58,12 +58,14 @@ const ModalFormLabel = styled.label`
 `;
 
 const ModalFormInput = styled.input`
+    padding: 8px;
     margin-bottom: 10px;
     font-size: 1.6rem;
     min-width: 400px;
 `;
 
 const ModalFormTextArea = styled.textarea`
+    padding: 8px;
     margin-bottom: 10px;
     font-size: 1.6rem;
     resize: none;
@@ -85,6 +87,11 @@ const ModalFormButton = styled.button`
     font-size: 1.6rem;
     font-weight: 500;
     cursor: pointer;
+`;
+
+const ModalErrorMessage = styled.div`
+    color: ${(props) => props.theme.secondary};
+    font-size: 1.2rem;
 `;
 
 const HomeProjectsDetailed = ({ children }) => {
@@ -193,12 +200,14 @@ const HomeProjectsDetailed = ({ children }) => {
                 <ModalFormTitle>Add Note</ModalFormTitle>
                 <ModalFormLabel>Title</ModalFormLabel>
                 <ModalFormInput onChange={(e) => handleInput(e, "title")} />
-                <div>{errorMessage.titleError}</div>
+                <ModalErrorMessage>{errorMessage.titleError}</ModalErrorMessage>
                 <ModalFormLabel>Content</ModalFormLabel>
                 <ModalFormTextArea
                     onChange={(e) => handleInput(e, "content")}
                 />
-                <div>{errorMessage.contentError}</div>
+                <ModalErrorMessage>
+                    {errorMessage.contentError}
+                </ModalErrorMessage>
                 {/* <ModalFormLabel>Title</ModalFormLabel> */}
                 {/* <ModalFormInput /> */}
                 <div>
