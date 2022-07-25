@@ -49,7 +49,9 @@ const Header = () => {
             <Container>
                 <Flex spaceBetween>
                     <Logo>
-                        <Link to="/">The Kima</Link>
+                        <a href="https://thekima.com/" target="_blank">
+                            The Kima
+                        </a>
                     </Logo>
                     <NavList>
                         {/* <NavItem>

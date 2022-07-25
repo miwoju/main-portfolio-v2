@@ -60,7 +60,7 @@ const ProjectsGrid = styled.div`
     }
 `;
 
-const ProjectCard = styled(motion.div)`
+const ProjectCard = styled(motion.a)`
     font-family: "Nunito";
     width: 300px;
     height: 300px;
@@ -145,7 +145,7 @@ const Button = styled.button`
         left: 50%;
         transform: translate(-50%, -50%);
         background-color: #fff;
-        height: 1px;
+        height: 1.5px;
         width: 13px;
         content: "";
     }
@@ -156,7 +156,7 @@ const Button = styled.button`
         transform: translate(-50%, -50%);
         background-color: #fff;
         height: 13px;
-        width: 1px;
+        width: 1.5px;
         content: "";
     }
 `;
@@ -185,6 +185,7 @@ const projectsList = [
         content: "Developed in Typescript under Gatsbyjs.",
         github: "https://github.com/miwoju/genshin-wish-simulator-gatsby",
         projectImg: genshinImg1,
+        hasContent: true,
     },
     {
         title: "Styled-Components Snippets Extension",
@@ -194,6 +195,26 @@ const projectsList = [
         content:
             "Coded snippets syntax that I still personally use to this day.",
         github: "https://github.com/miwoju/styled-components-snippets",
+        hasContent: false,
+    },
+    {
+        title: "GG.ez Player Stats Tracker",
+        // bgColor: "#fd5b78",
+        bgColor: "#e4c1f9",
+        href: "https://ggez.thekima.com/",
+        content: "League of Legends(Riot API) player stats tracker.",
+        github: "https://github.com/miwoju/league-app-client",
+        hasContent: false,
+    },
+    {
+        title: "Mock Twitter Project",
+        // bgColor: "#fd5b78",
+        bgColor: "#a9def9",
+        href: "https://mocksocial.thekima.com/",
+        content:
+            "Mock twitter app with authentication, sign ups and log ins, and comment post/delete/edits.",
+        github: "https://github.com/miwoju/mock-twitter-client",
+        hasContent: false,
     },
     {
         title: "TBA",
@@ -202,6 +223,7 @@ const projectsList = [
         // href: "https://github.com/miwoju/styled-components-snippets",
         content: "Many more coming soon!",
         github: "",
+        hasContent: false,
     },
     // {
     //     title: "Genshin Wish Simulator",
@@ -229,10 +251,10 @@ const projectCardVar = {
         // boxShadow: "-2px -2px 3px 0px rgba(0, 0, 0, 0.4)",
     },
     hover: {
-        scale: 1.05,
-        rotate: -1,
-        x: 10,
-        y: -10,
+        scale: 1.04,
+        rotate: -0.5,
+        x: 7,
+        y: -7,
         // boxShadow: "-4px -4px 8px 0px rgba(0, 0, 0, 0.3)",
     },
 };
@@ -243,7 +265,7 @@ const projectCardInnerVar = {
         boxShadow: "-2px -2px 3px 0px rgba(0, 0, 0, 0.2)",
     },
     hover: {
-        boxShadow: "-3px 3px 5px 0px rgba(0, 0, 0, 0.2)",
+        boxShadow: "-3px 3px 6px 2px rgba(0, 0, 0, 0.15)",
     },
 };
 
@@ -289,16 +311,18 @@ const HomeProjects = () => {
                                         content,
                                         github,
                                         projectImg,
+                                        hasContent,
                                     },
                                     index
                                 ) => (
                                     <ProjectCard
-                                        onClick={() =>
-                                            globalDispatch({
-                                                type: "TOGGLE_MODAL",
-                                                payload: title,
-                                            })
-                                        }
+                                        onClick={() => {
+                                            hasContent &&
+                                                globalDispatch({
+                                                    type: "TOGGLE_MODAL",
+                                                    payload: title,
+                                                });
+                                        }}
                                         key={index}
                                         initial="hidden"
                                         animate="show"
@@ -311,6 +335,9 @@ const HomeProjects = () => {
                                                 ? { zIndex: 10 }
                                                 : { zIndex: 1 }
                                         }
+                                        href={hasContent ? false : href}
+                                        target="_blank"
+
                                         // href="https://ty4coffee.thekima.com/"
                                         // target="_blank"
                                     >
