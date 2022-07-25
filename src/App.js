@@ -11,6 +11,7 @@ import Header from "./components/layout/Header";
 import Navigation from "./components/layout/Navigation";
 import Footer from "./components/layout/Footer";
 import { useGlobalStateContext } from "./components/context/globalContext";
+import { Helmet } from "react-helmet";
 // import { GlobalProvider } from "./components/context/globalContext";
 
 const GlobalStyle = createGlobalStyle`
@@ -72,6 +73,12 @@ function App() {
     };
     return (
         <ThemeProvider theme={lightTheme}>
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>Miwoju's Portfolio</title>
+                <link rel="canonical" href="https://thekima.com/" />
+                <meta name="description" content="Miwoju's Portfolio in 2022" />
+            </Helmet>
             <GlobalStyle isModalActive={isModalActive} />
             <Router>
                 <Header toggleMenu={toggleMenu} setToggleMenu={setToggleMenu} />
