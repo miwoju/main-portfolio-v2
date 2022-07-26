@@ -14,6 +14,9 @@ import { device } from "../../util/device";
 
 const StyledHomeProjects = styled.section`
     padding: 100px;
+    @media ${device.small} {
+        padding: 0px;
+    }
     background-color: #e5eaf4;
 `;
 
@@ -176,10 +179,11 @@ const ProjectCardBack = styled(ProjectCardShared)`
         user-select: none;
     }
     div {
-        margin: 5px 0;
+        margin-bottom: 10px;
         p {
-            font-size: 12px;
+            font-size: 14px;
             user-select: none;
+            margin-bottom: 5px;
         }
         a {
             /* display: inline-block; */

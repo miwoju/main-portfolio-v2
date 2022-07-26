@@ -78,6 +78,12 @@ function App() {
                 <title>Miwoju's Portfolio</title>
                 <link rel="canonical" href="https://thekima.com/" />
                 <meta name="description" content="Miwoju's Portfolio in 2022" />
+                <link
+                    rel="icon"
+                    type="image/png"
+                    href="favicon.ico"
+                    sizes="16x16"
+                />
             </Helmet>
             <GlobalStyle isModalActive={isModalActive} />
             <Router>
