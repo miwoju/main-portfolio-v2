@@ -2,6 +2,7 @@ import React, { Fragment, useEffect, useState } from "react";
 import { motion, useAnimation } from "framer-motion";
 import { ref, useInView } from "react-intersection-observer";
 import { Parallax, ParallaxLayer } from "@react-spring/parallax";
+import { device } from "../../util/device";
 
 //Styled components
 import styled from "styled-components";
@@ -51,6 +52,11 @@ const CardGridItem = styled(motion.a)`
         font-size: 1.6rem;
         color: #000;
     }
+
+    /* @media ${device.small} {
+        height: 150px;
+        width: 100px;
+    } */
 `;
 
 const IMG = styled(motion.img)`

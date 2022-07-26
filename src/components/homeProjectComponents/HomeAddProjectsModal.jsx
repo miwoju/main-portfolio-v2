@@ -34,10 +34,10 @@ const ModalForm = styled(motion.form)`
     background-color: #faf9f9;
     /* color: #ababab; */
     margin: 0px auto;
-    padding: 40px 30px;
+    padding: 30px 30px;
     /* border: 1px solid #888; */
     overflow: auto; /* Enable scroll if needed */
-    width: 500px; /* Could be more or less, depending on screen size */
+    width: 550px; /* Could be more or less, depending on screen size */
     min-height: 700px;
     /* @media ${device.small} {
         width: 100%;
@@ -221,6 +221,7 @@ const HomeProjectsDetailed = ({ children }) => {
                         Cancel
                     </ModalFormButton>
                 </div>
+                <p>Note: I made this just for fun! The data is not stored anywhere, don't worry  : )</p>
             </ModalForm>
         </StyledHomeProjectsDetailed>
     );
