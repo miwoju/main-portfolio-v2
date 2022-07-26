@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import HomeProjectsDetailed from "./HomeProjectsDetailed";
+import HomeProjectsDetailed from "./ProjectsModal";
 import { motion } from "framer-motion";
 
 //Images
@@ -10,8 +10,8 @@ import genshinImg3 from "../../assets/images/genshin-img3.png";
 import genshinImg4 from "../../assets/images/genshin-img4.png";
 import genshinImg5 from "../../assets/images/genshin-img5.png";
 import genshinImg6 from "../../assets/images/genshin-img6.png";
-import HomeProjectsDetailedIMG from "./HomeProjectsDetailedIMG";
-import HomeProjectsDetailedContent from "./HomeProjectsDetailedContent";
+import ProjectsStickyIMG from "./ProjectsStickyIMG";
+import ProjectsStickyContent from "./ProjectsStickyContent";
 
 const StyledHomeProjectsGenshin = styled(HomeProjectsDetailed)``;
 
@@ -25,9 +25,9 @@ const StyledHomeProjectsGenshin = styled(HomeProjectsDetailed)``;
 const HomeProjectsGenshin = () => {
     return (
         <StyledHomeProjectsGenshin>
-            <HomeProjectsDetailedContent>
+            <ProjectsStickyContent>
                 <a href="https://ty4coffee.thekima.com/" target="_blank">
-                    <HomeProjectsDetailedIMG src={genshinImg1} />
+                    <ProjectsStickyIMG src={genshinImg1} />
                 </a>
                 <br />
                 <a href="https://ty4coffee.thekima.com/" target="_blank">
@@ -41,8 +41,8 @@ const HomeProjectsGenshin = () => {
                 >
                     https://github.com/miwoju/genshin-wish-simulator-gatsby
                 </a>
-            </HomeProjectsDetailedContent>
-            <HomeProjectsDetailedContent italicize>
+            </ProjectsStickyContent>
+            <ProjectsStickyContent italicize>
                 <p>
                     Started as a joke with friends. After months of work, it
                     happened.
@@ -57,8 +57,8 @@ const HomeProjectsGenshin = () => {
                     It is now since retired and runs privately, closed off from
                     the public.
                 </p>
-            </HomeProjectsDetailedContent>
-            <HomeProjectsDetailedContent>
+            </ProjectsStickyContent>
+            <ProjectsStickyContent>
                 <p className="bold-text">Key features:</p>
                 <ul>
                     <li>Hosted through Firebase(previously Netlify).</li>
@@ -120,8 +120,8 @@ const HomeProjectsGenshin = () => {
                         70-pity respectively.
                     </li>
                 </ul>
-            </HomeProjectsDetailedContent>
-            <HomeProjectsDetailedContent>
+            </ProjectsStickyContent>
+            <ProjectsStickyContent>
                 <p className="bold-text">Stats for fun:</p>
                 <ol>
                     <li className="bold-text">
@@ -131,7 +131,7 @@ const HomeProjectsGenshin = () => {
                             3 million unique users. 6.3 million sessions.
                         </span>
                     </li>
-                    <HomeProjectsDetailedIMG src={genshinImg2} />
+                    <ProjectsStickyIMG src={genshinImg2} />
                     <li className="bold-text">
                         Peak active users
                         <br />
@@ -139,7 +139,7 @@ const HomeProjectsGenshin = () => {
                             Daily: 30,598 users. Monthly: 418,999 users.
                         </span>
                     </li>
-                    <HomeProjectsDetailedIMG src={genshinImg3} />
+                    <ProjectsStickyIMG src={genshinImg3} />
                     <li className="bold-text">
                         From countries around the globe
                         <br />
@@ -147,7 +147,7 @@ const HomeProjectsGenshin = () => {
                             #1 United States, #2 Russia, #3 Phillipines
                         </span>
                     </li>
-                    <HomeProjectsDetailedIMG src={genshinImg4} />
+                    <ProjectsStickyIMG src={genshinImg4} />
                     <li className="bold-text">
                         Complete Overview of Data
                         <br />
@@ -155,7 +155,7 @@ const HomeProjectsGenshin = () => {
                             10,484,781 pageviews, wow!
                         </span>
                     </li>
-                    <HomeProjectsDetailedIMG src={genshinImg5} />
+                    <ProjectsStickyIMG src={genshinImg5} />
                     <li className="bold-text">
                         $4 BuyMeACoffee supporters!
                         <br />
@@ -166,10 +166,10 @@ const HomeProjectsGenshin = () => {
                             off visitors...
                         </span>
                     </li>
-                    <HomeProjectsDetailedIMG src={genshinImg6} />
+                    <ProjectsStickyIMG src={genshinImg6} />
                 </ol>
-            </HomeProjectsDetailedContent>
-            <HomeProjectsDetailedContent>
+            </ProjectsStickyContent>
+            <ProjectsStickyContent>
                 <p className="bold-text">Things I could improve:</p>
                 <ul>
                     <li>
@@ -192,7 +192,7 @@ const HomeProjectsGenshin = () => {
                         banner selections.
                     </li>
                 </ul>
-            </HomeProjectsDetailedContent>
+            </ProjectsStickyContent>
         </StyledHomeProjectsGenshin>
     );
 };

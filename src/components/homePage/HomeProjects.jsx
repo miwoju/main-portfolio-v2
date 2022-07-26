@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import styled from "styled-components";
 import { Container, Flex } from "../../styles/globalStyles";
 import SectionHeader from "../SectionHeader";
-import HomeProjectsDetailed from "../homeProjectComponents/HomeProjectsDetailed";
+import HomeProjectsDetailed from "../homeProjectComponents/ProjectsModal";
 import {
     useGlobalStateContext,
     useGlobalDispatchContext,
@@ -160,16 +160,6 @@ const ProjectCardBack = styled(ProjectCardShared)`
     transform: rotateY(180deg);
 `;
 
-const Unproject = styled(motion.a)`
-    /* cursor: pointer; */
-    /* border: 1px solid black; */
-    width: 350px;
-    height: 250px;
-
-    /**TEMP */
-    /* background: white; */
-`;
-
 const IMG = styled.img`
     align-self: center;
     width: 150px;
@@ -204,20 +194,9 @@ const projectCardInnerVar = {
 };
 
 const HomeProjects = () => {
-    // const [projectsList, setProjectsList] = useState(LIST_OF_PROJECTS);
-    // const [isModalActive, globalDispatch] = useState(false);
-
     const { isModalActive, projectsList } = useGlobalStateContext();
     const globalDispatch = useGlobalDispatchContext();
 
-    // const handleClick = (title) => {
-    //     !isModalActive &&
-    //         globalDispatch({
-    //             type: "TOGGLE_MODAL",
-    //             payload: title,
-    //         });
-    // };
-    console.log(projectsList);
     return (
         <StyledHomeProjects id="projects">
             <Container>
@@ -254,7 +233,7 @@ const HomeProjects = () => {
                                         href,
                                         content,
                                         github,
-                                        projectImg,
+                                        imgSrc,
                                         hasContent,
                                     },
                                     index
@@ -301,8 +280,10 @@ const HomeProjects = () => {
                                                 <p className="content">
                                                     {content}
                                                 </p>
-                                                {projectImg && (
-                                                    <IMG src={projectImg} />
+                                                {imgSrc && (
+                                                    <IMG
+                                                        src={require(`../../assets/images/${imgSrc}`)}
+                                                    />
                                                 )}
                                                 <h4 className="title">
                                                     {/* <a

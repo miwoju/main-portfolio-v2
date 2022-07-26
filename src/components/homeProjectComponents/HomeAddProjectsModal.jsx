@@ -34,34 +34,30 @@ const ModalForm = styled(motion.form)`
     background-color: #faf9f9;
     /* color: #ababab; */
     margin: 0px auto;
-    padding: 40px 0;
+    padding: 40px 30px;
     /* border: 1px solid #888; */
     overflow: auto; /* Enable scroll if needed */
-    
     width: 500px; /* Could be more or less, depending on screen size */
     min-height: 700px;
-    @media ${device.small} {
+    /* @media ${device.small} {
         width: 100%;
-    }
+    } */
     border-radius: 5px;
     box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
 `;
-const ModalContentContainer = styled.div`
-    margin: 0 auto;
-    /* width: 800px; */
-    max-width: 800px;
-`;
 
 const ModalFormLabel = styled.label`
-    margin: 20px 0 5px 0;
+    margin: 20px 5px 5px 5px;
     font-size: 1.6rem;
+    align-self: flex-start;
 `;
 
 const ModalFormInput = styled.input`
     padding: 8px;
     margin-bottom: 10px;
     font-size: 1.6rem;
-    min-width: 400px;
+    /* max-width: 400px; */
+    width: 100%;
 `;
 
 const ModalFormTextArea = styled.textarea`
@@ -70,7 +66,8 @@ const ModalFormTextArea = styled.textarea`
     font-size: 1.6rem;
     resize: none;
     height: 300px;
-    min-width: 400px;
+    /* max-width: 400px; */
+    width: 100%;
 `;
 
 const ModalFormTitle = styled.h3`
@@ -198,10 +195,10 @@ const HomeProjectsDetailed = ({ children }) => {
                 onClick={(e) => e.stopPropagation()}
             >
                 <ModalFormTitle>Add Note</ModalFormTitle>
-                <ModalFormLabel>Title</ModalFormLabel>
+                <ModalFormLabel>Name of Project:</ModalFormLabel>
                 <ModalFormInput onChange={(e) => handleInput(e, "title")} />
                 <ModalErrorMessage>{errorMessage.titleError}</ModalErrorMessage>
-                <ModalFormLabel>Content</ModalFormLabel>
+                <ModalFormLabel>Project Description:</ModalFormLabel>
                 <ModalFormTextArea
                     onChange={(e) => handleInput(e, "content")}
                 />

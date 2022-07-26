@@ -3,7 +3,7 @@ import HomeAbout from "../components/homePage/HomeAbout";
 import HomeIntro from "../components/homePage/HomeIntro";
 import HomeProjects from "../components/homePage/HomeProjects";
 import HomeContact from "../components/homePage/HomeContact";
-import HomeProjectsDetailed from "../components/homeProjectComponents/HomeProjectsDetailed";
+import ProjectsModal from "../components/homeProjectComponents/ProjectsModal";
 import HomeAddProjectsModal from "../components/homeProjectComponents/HomeAddProjectsModal";
 import { useGlobalStateContext } from "../components/context/globalContext";
 import HomeProjectsGenshin from "../components/homeProjectComponents/HomeProjectsGenshin";
@@ -22,7 +22,7 @@ const Home = () => {
             ) : isModalActive === "ADD_PROJECT" ? (
                 <HomeAddProjectsModal />
             ) : (
-                isModalActive && <HomeProjectsDetailed />
+                isModalActive && <ProjectsModal />
             )}
             <HomeContact />
         </Fragment>

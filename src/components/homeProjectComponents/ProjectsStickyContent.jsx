@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-const StyledHomeProjectsDetailedContent = styled.div`
+const StyledProjectsStickyContent = styled.div`
     margin: 50px 28px;
     font-size: 2rem;
     font-family: "Nunito", sans-serif;
@@ -24,12 +24,12 @@ const StyledHomeProjectsDetailedContent = styled.div`
     }
 `;
 
-const HomeProjectsDetailedContent = ({ children, italicize }) => {
+const ProjectsStickyContent = ({ children, italicize }) => {
     return (
-        <StyledHomeProjectsDetailedContent italicize={italicize}>
+        <StyledProjectsStickyContent italicize={italicize}>
             {children}
-        </StyledHomeProjectsDetailedContent>
+        </StyledProjectsStickyContent>
     );
 };
 
-export default HomeProjectsDetailedContent;
+export default ProjectsStickyContent;

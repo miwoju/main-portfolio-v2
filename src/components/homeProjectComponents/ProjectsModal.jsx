@@ -9,7 +9,7 @@ import {
 import CloseButton from "../CloseButton";
 import { device } from "../../util/device";
 
-const StyledHomeProjectsDetailed = styled(motion.div)`
+const StyledProjectsModal = styled(motion.div)`
     display: block;
     position: fixed; /* Stay in place */
     left: 0;
@@ -55,7 +55,7 @@ const ModalContentTitle = styled.h3`
     margin: 40px 0;
 `;
 
-const HomeProjectsDetailed = ({ children }) => {
+const ProjectsModal = ({ children }) => {
     const { isModalActive } = useGlobalStateContext();
     const globalDispatch = useGlobalDispatchContext();
 
@@ -89,7 +89,7 @@ const HomeProjectsDetailed = ({ children }) => {
     };
 
     return (
-        <StyledHomeProjectsDetailed
+        <StyledProjectsModal
             onClick={(e) => handleOutsideClick(e)}
             variants={modalContainerVar}
             initial="hidden"
@@ -105,8 +105,8 @@ const HomeProjectsDetailed = ({ children }) => {
                 <ModalContentTitle>{isModalActive}</ModalContentTitle>
                 <ModalContentContainer>{children}</ModalContentContainer>
             </ModalContent>
-        </StyledHomeProjectsDetailed>
+        </StyledProjectsModal>
     );
 };
 
-export default HomeProjectsDetailed;
+export default ProjectsModal;
