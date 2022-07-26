@@ -162,7 +162,8 @@ const ProjectCardBack = styled(ProjectCardShared)`
 
 const IMG = styled.img`
     align-self: center;
-    width: 150px;
+    width: 200px;
+    max-height: 120px;
 `;
 
 const projectCardVar = {
