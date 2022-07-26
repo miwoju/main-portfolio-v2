@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 //Styled components
@@ -29,7 +29,6 @@ const ProjectsContainer = styled.div`
     box-shadow: -1px -1px 3px 0px rgba(0, 0, 0, 0.1);
     &:hover {
         box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.1);
-        /* transform: translateY(-1px); */
     }
     /* padding: 0 100px; */
 `;
@@ -101,7 +100,7 @@ const ProjectsGrid = styled.div`
     }
 `;
 
-const ProjectCard = styled(motion.a)`
+const ProjectCard = styled(motion.div)`
     font-family: "Nunito";
     width: 300px;
     height: 300px;
@@ -126,15 +125,20 @@ const ProjectCardInner = styled(motion.div)`
     /* position: relative; */
     width: 100%;
     height: 100%;
-    cursor: pointer;
+    /* cursor: pointer; */
     transform-style: preserve-3d;
     /* box-shadow: -2px -2px 3px 0px rgba(0, 0, 0, 0.4); */
     /* &:hover {
         box-shadow: -4px -4px 8px 0px rgba(0, 0, 0, 0.3);
     } */
-    &.rotate {
+    &.rotate-into-content {
         transition: transform 0.6s;
         transform: rotateY(180deg) rotate(-90deg) translate(0px) scale(3);
+    }
+
+    &.rotate {
+        transition: transform 0.6s;
+        transform: rotateY(180deg);
     }
     &.rotate-back {
         transition: transform 0.6s;
@@ -146,7 +150,6 @@ const ProjectCardShared = styled.div`
     border-radius: 20px;
     position: absolute;
     display: flex;
-    justify-content: space-between;
     flex-direction: column;
     width: 100%;
     height: 100%;
@@ -155,15 +158,44 @@ const ProjectCardShared = styled.div`
     backface-visibility: hidden;
 `;
 
-const ProjectCardFront = styled(ProjectCardShared)``;
+const ProjectCardFront = styled(ProjectCardShared)`
+    justify-content: space-between;
+    user-select: none;
+`;
 const ProjectCardBack = styled(ProjectCardShared)`
+    justify-content: space-between;
     transform: rotateY(180deg);
+    /* border: 2px solid rgba(0, 0, 0, 0.5); */
+    /* border: 2px solid rgba(${(props) => props.theme.secondaryHex} 0.7); */
+    box-shadow: 0px 0px 16px 2px rgba(${(props) => props.theme.primaryHex} 0.6);
+
+    background-color: ${(props) => props.bgColor};
+    cursor: default;
+    h4 {
+        font-size: 15px;
+        user-select: none;
+    }
+    div {
+        margin: 5px 0;
+        p {
+            font-size: 12px;
+            user-select: none;
+        }
+        a {
+            /* display: inline-block; */
+            /* min-height: 30px; */
+            font-size: 13px;
+            word-wrap: break-word;
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+    }
 `;
 
 const IMG = styled.img`
     align-self: center;
     width: 200px;
     max-height: 120px;
+    user-select: none;
 `;
 
 const projectCardVar = {
@@ -195,9 +227,31 @@ const projectCardInnerVar = {
 };
 
 const HomeProjects = () => {
+    const [isFlipped, setIsFlipped] = useState({});
     const { isModalActive, projectsList } = useGlobalStateContext();
     const globalDispatch = useGlobalDispatchContext();
 
+    useEffect(() => {
+        const initializeFlipped = {};
+        projectsList.forEach((item, idx) => {
+            initializeFlipped[idx] = false;
+        });
+        setIsFlipped(initializeFlipped);
+    }, []);
+
+    const handleCardClick = (hasContent, title, idx) => {
+        hasContent
+            ? globalDispatch({
+                  type: "TOGGLE_MODAL",
+                  payload: title,
+              })
+            : setIsFlipped({
+                  ...isFlipped,
+                  [idx]: !isFlipped[idx],
+              });
+    };
+
+    console.log(isFlipped);
     return (
         <StyledHomeProjects id="projects">
             <Container>
@@ -237,17 +291,17 @@ const HomeProjects = () => {
                                         imgSrc,
                                         hasContent,
                                     },
-                                    index
+                                    idx
                                 ) => (
                                     <ProjectCard
-                                        onClick={() => {
-                                            hasContent &&
-                                                globalDispatch({
-                                                    type: "TOGGLE_MODAL",
-                                                    payload: title,
-                                                });
-                                        }}
-                                        key={index}
+                                        onClick={() =>
+                                            handleCardClick(
+                                                hasContent,
+                                                title,
+                                                idx
+                                            )
+                                        }
+                                        key={idx}
                                         initial="hidden"
                                         animate="show"
                                         variants={projectCardVar}
@@ -259,16 +313,14 @@ const HomeProjects = () => {
                                                 ? { zIndex: 10 }
                                                 : { zIndex: 1 }
                                         }
-                                        href={hasContent ? false : href}
-                                        target="_blank"
-
-                                        // href="https://ty4coffee.thekima.com/"
-                                        // target="_blank"
                                     >
                                         <ProjectCardInner
                                             variants={projectCardInnerVar}
                                             className={
-                                                isModalActive === title
+                                                isModalActive === title &&
+                                                hasContent
+                                                    ? "rotate-into-content"
+                                                    : isFlipped[idx]
                                                     ? "rotate"
                                                     : "rotate-back"
                                             }
@@ -296,10 +348,54 @@ const HomeProjects = () => {
                                                 </h4>
                                             </ProjectCardFront>
                                             <ProjectCardBack
-                                                style={{
-                                                    backgroundColor: bgColor,
-                                                }}
-                                            ></ProjectCardBack>
+                                                // style={{
+                                                //     backgroundColor: bgColor,
+                                                // }}
+                                                bgColor={bgColor}
+                                            >
+                                                {!hasContent && (
+                                                    <>
+                                                        <div>
+                                                            <div>
+                                                                <p>Site:</p>
+                                                                <a
+                                                                    href={href}
+                                                                    target="_blank"
+                                                                    onClick={(
+                                                                        e
+                                                                    ) =>
+                                                                        e.stopPropagation()
+                                                                    }
+                                                                >
+                                                                    {href}
+                                                                </a>
+                                                            </div>
+                                                            {/* {imgSrc && (
+                                                            <IMG
+                                                                src={require(`../../assets/images/${imgSrc}`)}
+                                                            />
+                                                        )} */}
+                                                            <div>
+                                                                <p>Github:</p>
+                                                                <a
+                                                                    href={
+                                                                        github
+                                                                    }
+                                                                    target="_blank"
+                                                                    onClick={(
+                                                                        e
+                                                                    ) =>
+                                                                        e.stopPropagation()
+                                                                    }
+                                                                >
+                                                                    {github}
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                        <h4>{title}</h4>
+                                                    </>
+                                                )}
+                                            </ProjectCardBack>
                                         </ProjectCardInner>
                                     </ProjectCard>
                                 )

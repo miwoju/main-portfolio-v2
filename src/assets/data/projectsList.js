@@ -13,7 +13,7 @@ export const projectsList = [
         title: "Styled-Components Snippets",
         // bgColor: "#fd5b78",
         bgColor: "#fcf6bd",
-        href: "https://github.com/miwoju/styled-components-snippets",
+        href: "https://marketplace.visualstudio.com/items?itemName=richarddshin.styled-components-snippets",
         content:
             "Code snippets extension for VSCode. I still personally use it to this day for fast boiler-plates & productions.",
         github: "https://github.com/miwoju/styled-components-snippets",
