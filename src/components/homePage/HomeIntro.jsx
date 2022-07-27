@@ -11,7 +11,9 @@ import { Container, Flex } from "../../styles/globalStyles";
 import selfie from "../../assets/images/about-img.jpg";
 import projectImg from "../../assets/images/genshin-img1.png";
 
-const StyledHomeIntro = styled.section``;
+const StyledHomeIntro = styled.section`
+    overflow-x: hidden;
+`;
 
 const IntroHeader = styled(motion.header)`
     display: flex;

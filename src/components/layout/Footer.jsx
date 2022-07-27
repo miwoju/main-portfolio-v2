@@ -36,16 +36,20 @@ const Footer = () => {
                         ></motion.i>
                         <motion.i
                             whileHover={iconHover}
-                            className="fab fa-codepen"
-                        ></motion.i>
-                        <motion.i
-                            whileHover={iconHover}
-                            className="fab fa-facebook"
+                            className="fab fa-twitter"
                         ></motion.i>
                         <motion.i
                             whileHover={iconHover}
                             className="fab fa-instagram"
                         ></motion.i>
+                        <motion.i
+                            whileHover={iconHover}
+                            className="fab fa-tiktok"
+                        ></motion.i>
+                        {/* <motion.i
+                            whileHover={iconHover}
+                            className="fab fa-facebook"
+                        ></motion.i> */}
                     </Socials>
                     <Copyright>
                         ©Copyright 2020 | Designed and Developed by Richard D

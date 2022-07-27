@@ -3,7 +3,8 @@ import styled, { css } from "styled-components";
 export const Container = styled.div`
     flex-grow: 1;
     margin: 0 auto;
-    padding: 0 32px;
+    /* padding: 0 32px; */
+    padding: 0 10px;
     position: relative;
     width: auto;
     height: 100%;
@@ -21,7 +22,7 @@ export const Container = styled.div`
         css`
             padding: 0;
             margin: 0;
-            background: red;
+            /* background: red; */
             max-width: 100% !important;
         `}
     ${(props) =>

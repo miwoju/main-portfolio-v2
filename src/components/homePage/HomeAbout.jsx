@@ -80,7 +80,6 @@ const SkillsContainer = styled(motion.div)`
     }
     @media ${device.small} {
         padding: 10px 12px 0px 12px;
-
         width: 400px;
     }
     @media ${device.extraSmall} {

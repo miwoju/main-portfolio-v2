@@ -111,6 +111,9 @@ const ProjectsGrid = styled.div`
     @media ${device.small} {
         grid-template-columns: 1fr;
     }
+    @media ${device.extraSmall} {
+        padding: 20px 20px;
+    }
 `;
 
 const ProjectCard = styled(motion.div)`

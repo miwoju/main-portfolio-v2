@@ -9,7 +9,7 @@ import { motion } from "framer-motion";
 import { device } from "../../util/device";
 
 const StyledHomeContact = styled.section`
-    padding: 100px 0;
+    padding: 100px 12px;
     background-color: ${(props) => props.theme.primary};
     /* color: ${(props) => props.theme.textInverse}; */
     .input {

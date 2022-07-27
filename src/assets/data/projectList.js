@@ -58,10 +58,10 @@ export const projectList = [
         title: "To be announced...",
         // bgColor: "#fd5b78",
         bgColor: "#b2f7ef",
-        // href: "https://github.com/miwoju/styled-components-snippets",
+        href: "N/A",
         content:
             "Many more being updated soon! Due to time constraints or client permissions, not all projects can be posted so be on the lookout!",
-        github: "",
+        github: "N/A",
         hasContent: false,
     },
     // {
