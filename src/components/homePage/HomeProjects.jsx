@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 //Styled components
 import styled from "styled-components";
 import { Container, Flex } from "../../styles/globalStyles";
 import SectionHeader from "../SectionHeader";
-import HomeProjectsDetailed from "../homeProjectComponents/ProjectsModal";
+// import HomeProjectsDetailed from "../homeProjectComponents/ProjectsModal";
 import {
     useGlobalStateContext,
     useGlobalDispatchContext,
@@ -248,17 +248,18 @@ const HomeProjects = () => {
     const { isModalActive, projectList } = useGlobalStateContext();
     const globalDispatch = useGlobalDispatchContext();
 
-    useEffect(() => {
-        unFlip();
-    }, []);
-
-    const unFlip = () => {
+    const unFlip = useCallback(() => {
         const initializeFlipped = {};
         projectList.forEach((item, idx) => {
             initializeFlipped[idx] = false;
         });
         setIsFlipped(initializeFlipped);
-    };
+        // eslint-disable-next-line
+    }, []);
+
+    useEffect(() => {
+        unFlip();
+    }, [unFlip]);
 
     const handleReset = () => {
         unFlip();
@@ -394,6 +395,7 @@ const HomeProjects = () => {
                                                                 <p>Site:</p>
                                                                 <a
                                                                     href={href}
+                                                                    rel="noopener noreferrer"
                                                                     target="_blank"
                                                                     onClick={(
                                                                         e
@@ -415,6 +417,7 @@ const HomeProjects = () => {
                                                                     href={
                                                                         github
                                                                     }
+                                                                    rel="noopener noreferrer"
                                                                     target="_blank"
                                                                     onClick={(
                                                                         e

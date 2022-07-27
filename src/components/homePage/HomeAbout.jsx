@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import CountUp from "react-countup";
 import { motion } from "framer-motion";
-import { ref, useInView } from "react-intersection-observer";
+import { useInView } from "react-intersection-observer";
 
 //Styled components
 import styled, { css } from "styled-components";

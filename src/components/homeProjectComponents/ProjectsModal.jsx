@@ -1,4 +1,4 @@
-import React, { Children } from "react";
+import React, { useRef } from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 
@@ -8,6 +8,7 @@ import {
 } from "../context/globalContext";
 import CloseButton from "../CloseButton";
 import { device } from "../../util/device";
+import { useInView } from "react-intersection-observer";
 
 const StyledProjectsModal = styled(motion.div)`
     display: block;
@@ -55,9 +56,30 @@ const ModalContentTitle = styled.h3`
     margin: 40px 0;
 `;
 
+const ScrollToTop = styled.button`
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius: 50px;
+    overflow: hidden;
+    border: none;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+    z-index: 99;
+    font-size: 1.5rem;
+    bottom: 50px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    &:hover {
+        transform: scale(1.1);
+    }
+`;
+
 const ProjectsModal = ({ children }) => {
+    const [ref, inView] = useInView();
     const { isModalActive } = useGlobalStateContext();
     const globalDispatch = useGlobalDispatchContext();
+
+    const scrollRef = useRef(null);
 
     const handleOutsideClick = (e) => {
         e.preventDefault();
@@ -87,7 +109,6 @@ const ProjectsModal = ({ children }) => {
             transition: { ease: "easeInOut", duration: 0.05 },
         },
     };
-
     return (
         <StyledProjectsModal
             onClick={(e) => handleOutsideClick(e)}
@@ -100,10 +121,22 @@ const ProjectsModal = ({ children }) => {
                 initial="hidden"
                 animate="show"
                 onClick={(e) => e.stopPropagation()}
+                ref={scrollRef}
             >
                 <CloseButton />
-                <ModalContentTitle>{isModalActive}</ModalContentTitle>
+                <ModalContentTitle ref={ref}>{isModalActive}</ModalContentTitle>
                 <ModalContentContainer>{children}</ModalContentContainer>
+                {!inView && (
+                    <ScrollToTop
+                        onClick={(e) =>
+                            scrollRef.current.scrollTo({
+                                top: scrollRef.current.offsetTop,
+                            })
+                        }
+                    >
+                        <i class="fa fa-chevron-up"></i>
+                    </ScrollToTop>
+                )}
             </ModalContent>
         </StyledProjectsModal>
     );

@@ -1,11 +1,8 @@
-import React, { Children, useState } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 
-import {
-    useGlobalDispatchContext,
-    useGlobalStateContext,
-} from "../context/globalContext";
+import { useGlobalDispatchContext } from "../context/globalContext";
 import { device } from "../../util/device";
 
 const StyledHomeProjectsDetailed = styled(motion.div)`
@@ -93,8 +90,7 @@ const ModalErrorMessage = styled.div`
     font-size: 1.2rem;
 `;
 
-const HomeProjectsDetailed = ({ children }) => {
-    const { isModalActive } = useGlobalStateContext();
+const HomeProjectsDetailed = () => {
     const globalDispatch = useGlobalDispatchContext();
     const [titleValue, setTitleValue] = useState("");
     const [contentValue, setContentValue] = useState("");

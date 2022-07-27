@@ -11,7 +11,7 @@ import Header from "./components/layout/Header";
 import Navigation from "./components/layout/Navigation";
 import Footer from "./components/layout/Footer";
 import { useGlobalStateContext } from "./components/context/globalContext";
-import { Helmet } from "react-helmet";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 // import { GlobalProvider } from "./components/context/globalContext";
 
 const GlobalStyle = createGlobalStyle`
@@ -53,7 +53,7 @@ function App() {
     // { title: "contact", bgColor: "#f7d6e0" },
 
     const { isModalActive } = useGlobalStateContext();
-    const darkTheme = {};
+    // const darkTheme = {};
     const lightTheme = {
         //Blue
         // primary: "#1be7ff",
@@ -72,33 +72,41 @@ function App() {
         boxShadowFar: "1px 1px 12px rgba(0, 0, 0, 0.4)",
     };
     return (
-        <ThemeProvider theme={lightTheme}>
-            <Helmet>
-                <meta charSet="utf-8" />
-                <title>Miwoju's Portfolio</title>
-                <link rel="canonical" href="https://thekima.com/" />
-                <meta name="description" content="Miwoju's Portfolio in 2022" />
-                <link
-                    rel="icon"
-                    type="image/png"
-                    href="favicon.ico"
-                    sizes="16x16"
-                />
-            </Helmet>
-            <GlobalStyle isModalActive={isModalActive} />
-            <Router>
-                <Header toggleMenu={toggleMenu} setToggleMenu={setToggleMenu} />
-                <Navigation
-                    toggleMenu={toggleMenu}
-                    setToggleMenu={setToggleMenu}
-                />
-                <Switch>
-                    <Route exact path="/" component={home} />
-                    <Route exact path="/notfound" component={notfound} />
-                </Switch>
-                <Footer />
-            </Router>
-        </ThemeProvider>
+        <HelmetProvider>
+            <ThemeProvider theme={lightTheme}>
+                <Helmet>
+                    <meta charSet="utf-8" />
+                    <title>Miwoju's Portfolio</title>
+                    <link rel="canonical" href="https://thekima.com/" />
+                    <meta
+                        name="description"
+                        content="Miwoju's Portfolio in 2022"
+                    />
+                    <link
+                        rel="icon"
+                        type="image/png"
+                        href="favicon.ico"
+                        sizes="16x16"
+                    />
+                </Helmet>
+                <GlobalStyle isModalActive={isModalActive} />
+                <Router>
+                    <Header
+                        toggleMenu={toggleMenu}
+                        setToggleMenu={setToggleMenu}
+                    />
+                    <Navigation
+                        toggleMenu={toggleMenu}
+                        setToggleMenu={setToggleMenu}
+                    />
+                    <Switch>
+                        <Route exact path="/" component={home} />
+                        <Route exact path="/notfound" component={notfound} />
+                    </Switch>
+                    <Footer />
+                </Router>
+            </ThemeProvider>
+        </HelmetProvider>
     );
 }
 

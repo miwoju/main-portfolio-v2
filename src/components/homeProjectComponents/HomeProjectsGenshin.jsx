@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import HomeProjectsDetailed from "./ProjectsModal";
-import { motion } from "framer-motion";
+// import { motion } from "framer-motion";
 
 //Images
 import genshinImg1 from "../../assets/images/genshin-img1.png";
@@ -26,17 +26,26 @@ const HomeProjectsGenshin = () => {
     return (
         <StyledHomeProjectsGenshin>
             <ProjectsStickyContent>
-                <a href="https://ty4coffee.thekima.com/" target="_blank">
+                <a
+                    href="https://ty4coffee.thekima.com/"
+                    rel="noopener noreferrer"
+                    target="_blank"
+                >
                     <ProjectsStickyIMG src={genshinImg1} />
                 </a>
                 <br />
-                <a href="https://ty4coffee.thekima.com/" target="_blank">
+                <a
+                    href="https://ty4coffee.thekima.com/"
+                    rel="noopener noreferrer"
+                    target="_blank"
+                >
                     Take me to the site!
                 </a>
                 <br />
                 github:{" "}
                 <a
                     href="https://github.com/miwoju/genshin-wish-simulator-gatsby"
+                    rel="noopener noreferrer"
                     target="_blank"
                 >
                     https://github.com/miwoju/genshin-wish-simulator-gatsby

@@ -1,7 +1,7 @@
-import React, { Fragment, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { motion, useAnimation } from "framer-motion";
-import { ref, useInView } from "react-intersection-observer";
-import { Parallax, ParallaxLayer } from "@react-spring/parallax";
+import { useInView } from "react-intersection-observer";
+// import { Parallax, ParallaxLayer } from "@react-spring/parallax";
 import { device } from "../../util/device";
 
 //Styled components
@@ -53,7 +53,7 @@ const CardGridItem = styled(motion.a)`
     margin: 4px;
     display: flex;
     cursor: pointer;
-    background-color: #fff;
+    /* background-color: #fff; */
     justify-content: center;
     transform-origin: 80% 80%;
     .title {
@@ -94,7 +94,7 @@ const IMGWrapper = styled(motion.div)`
     display: flex;
     /* background-color: red; */
     margin: 14px 14px 14px 14px;
-    border: 1px solid transparent;
+    border: 1px solid rgba(0, 0, 0, 0);
     justify-content: center;
 `;
 
@@ -151,6 +151,7 @@ const HomeIntro = () => {
             ]);
         };
         startAnimation();
+        // eslint-disable-next-line
     }, []);
 
     const subtextVar = {
@@ -193,7 +194,7 @@ const HomeIntro = () => {
             scale: 1.4,
             boxShadow: "2px 2px 2px rgba(0, 0, 0, 0.1)",
             zIndex: 5 - i,
-            border: "none",
+            border: "0px solid #fff",
             transition: {
                 opacity: { ease: "easeOut", duration: 1, delay: 0.6 },
                 x: { duration: 0.3, delay: i * 0.1 },
@@ -218,12 +219,13 @@ const HomeIntro = () => {
             },
         }),
         hover: {
-            backgroundColor: "transparent",
+            backgroundColor: "rgba(255,255,255,0)",
             scale: 1.1,
             width: 350,
             zIndex: 10,
-            border: "none",
+            border: "0px solid #fff",
             transition: {
+                border: { delay: 0, duration: 0 },
                 scale: { ease: "easeOut" },
                 duration: 0.6,
             },
@@ -272,7 +274,7 @@ const HomeIntro = () => {
 
     const imgWrapperVar = {
         show: {
-            borderColor: "transparent",
+            borderColor: "rgba(0,0,0,0)",
             overflow: "show",
             marginBottom: "14px",
         },

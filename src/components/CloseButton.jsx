@@ -12,7 +12,7 @@ const StyledCloseButton = styled.button`
     box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
     z-index: 99;
     right: 80%;
-    top: 40px;
+    top: 50px;
     cursor: pointer;
     &:hover {
         box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);

@@ -1,5 +1,4 @@
 import React, { createContext, useReducer, useContext } from "react";
-import genshinImg1 from "../../assets/images/genshin-img1.png";
 import { projectList } from "../../assets/data/projectList";
 
 //Define Conext

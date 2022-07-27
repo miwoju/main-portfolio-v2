@@ -31,10 +31,10 @@ const Form = styled.form`
         width: 100%;
     }
 `;
-const Label = styled.label`
-    font-size: 1.6rem;
-    margin: 7px;
-`;
+// const Label = styled.label`
+//     font-size: 1.6rem;
+//     margin: 7px;
+// `;
 
 const Input = styled.input``;
 const TextArea = styled.textarea`
@@ -57,7 +57,7 @@ const Button = styled(motion.button)`
     }
 `;
 
-const HomeContact = ({}) => {
+const HomeContact = () => {
     return (
         <StyledHomeContact id="contact">
             <Container>

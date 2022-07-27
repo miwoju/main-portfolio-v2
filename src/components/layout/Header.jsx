@@ -2,7 +2,7 @@ import React from "react";
 //Styled components
 import styled from "styled-components";
 import { Container, Flex } from "../../styles/globalStyles";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 import { device } from "../../util/device";
 
@@ -63,7 +63,11 @@ const Header = () => {
             <Container>
                 <Flex spaceBetween>
                     <Logo>
-                        <a href="https://thekima.com/" target="_blank">
+                        <a
+                            href="https://thekima.com/"
+                            rel="noopener noreferrer"
+                            target="_blank"
+                        >
                             The Kima
                         </a>
                     </Logo>
@@ -72,13 +76,19 @@ const Header = () => {
                             <a href="#intro">Home</a>
                         </NavItem> */}
                         <NavItem>
-                            <a href="#about">about</a>
+                            <a href="#about" rel="noopener noreferrer">
+                                about
+                            </a>
                         </NavItem>
                         <NavItem>
-                            <a href="#projects">projects</a>
+                            <a href="#projects" rel="noopener noreferrer">
+                                projects
+                            </a>
                         </NavItem>
                         <NavItem>
-                            <a href="#contact">contact</a>
+                            <a href="#contact" rel="noopener noreferrer">
+                                contact
+                            </a>
                         </NavItem>
                     </NavList>
                 </Flex>
