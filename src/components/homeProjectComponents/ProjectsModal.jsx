@@ -134,7 +134,7 @@ const ProjectsModal = ({ children }) => {
                             })
                         }
                     >
-                        <i class="fa fa-chevron-up"></i>
+                        <i className="fa fa-chevron-up"></i>
                     </ScrollToTop>
                 )}
             </ModalContent>
