@@ -24,6 +24,7 @@ const StyledHomeProjectsDetailed = styled(motion.div)`
     /* background-color: rgba(${(props) => props.theme.secondaryHex} 0.4); */
     /* background-color: ${(props) => props.theme.secondary}; */
     text-align: center;
+    padding: 15px;
 `;
 const ModalForm = styled(motion.form)`
     /* background-color: #fefefe; */
@@ -38,7 +39,8 @@ const ModalForm = styled(motion.form)`
     /* border: 1px solid #888; */
     overflow: auto; /* Enable scroll if needed */
     width: 550px; /* Could be more or less, depending on screen size */
-    min-height: 700px;
+    min-height: 650px;
+
     /* @media ${device.small} {
         width: 100%;
     } */
@@ -135,6 +137,9 @@ const HomeProjectsDetailed = ({ children }) => {
         e.preventDefault();
         e.stopPropagation();
 
+        const LENGTH_OF_TITLE = 5;
+        const LENGTH_OF_CONTENT = 10;
+
         if (type === "cancel") {
             globalDispatch({ type: "TOGGLE_MODAL", payload: false });
         }
@@ -142,11 +147,11 @@ const HomeProjectsDetailed = ({ children }) => {
         let titleError = "";
         let contentError = "";
 
-        if (titleValue.length < 5) {
-            titleError = "Title must be at least 5 characters.";
+        if (titleValue.length < LENGTH_OF_TITLE) {
+            titleError = `Title must be at least ${LENGTH_OF_TITLE} characters.`;
         }
-        if (contentValue.length < 12) {
-            contentError = "Content must be at least 12 characters.";
+        if (contentValue.length < LENGTH_OF_CONTENT) {
+            contentError = `Content must be at least ${LENGTH_OF_CONTENT} characters.`;
         }
         setErrorMessage({
             titleError: titleError,
@@ -162,6 +167,8 @@ const HomeProjectsDetailed = ({ children }) => {
                     title: titleValue,
                     content: contentValue,
                     bgColor: "#f7d6e0",
+                    href: `Is there even a site for ${titleValue.toUpperCase()}?`,
+                    github: "I don't need your github. This is your project not mine!",
                 },
             });
             globalDispatch({ type: "TOGGLE_MODAL", payload: false });
@@ -196,11 +203,15 @@ const HomeProjectsDetailed = ({ children }) => {
             >
                 <ModalFormTitle>Add Note</ModalFormTitle>
                 <ModalFormLabel>Name of Project:</ModalFormLabel>
-                <ModalFormInput onChange={(e) => handleInput(e, "title")} />
+                <ModalFormInput
+                    onChange={(e) => handleInput(e, "title")}
+                    placeholder={"Title of project"}
+                />
                 <ModalErrorMessage>{errorMessage.titleError}</ModalErrorMessage>
                 <ModalFormLabel>Project Description:</ModalFormLabel>
                 <ModalFormTextArea
                     onChange={(e) => handleInput(e, "content")}
+                    placeholder={"Short summary of the project"}
                 />
                 <ModalErrorMessage>
                     {errorMessage.contentError}
@@ -221,7 +232,10 @@ const HomeProjectsDetailed = ({ children }) => {
                         Cancel
                     </ModalFormButton>
                 </div>
-                <p>Note: I made this just for fun! The data is not stored anywhere, don't worry  : )</p>
+                <p style={{ fontSize: "1.1rem" }}>
+                    ps: I made this just for fun! The data is not stored, don't
+                    worry : )
+                </p>
             </ModalForm>
         </StyledHomeProjectsDetailed>
     );

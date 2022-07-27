@@ -1,6 +1,6 @@
 import React, { createContext, useReducer, useContext } from "react";
 import genshinImg1 from "../../assets/images/genshin-img1.png";
-import { projectsList } from "../../assets/data/projectsList";
+import { projectList } from "../../assets/data/projectList";
 
 //Define Conext
 const GlobalStateContext = createContext();
@@ -8,7 +8,7 @@ const GlobalDispatchContext = createContext();
 
 const initialState = {
     isModalActive: false,
-    projectsList: projectsList,
+    projectList: projectList,
 };
 
 //Reducer
@@ -23,7 +23,13 @@ const globalReducer = (state, action) => {
         case "ADD_NOTE": {
             return {
                 ...state,
-                projectsList: [...state.projectsList, action.payload],
+                projectList: [...state.projectList, action.payload],
+            };
+        }
+        case "RESET_PROJECTLIST": {
+            return {
+                ...state,
+                projectList,
             };
         }
         // case "CURSOR_TYPE": {

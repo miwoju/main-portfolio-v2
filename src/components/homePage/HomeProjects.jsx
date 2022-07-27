@@ -242,16 +242,27 @@ const projectCardInnerVar = {
 
 const HomeProjects = () => {
     const [isFlipped, setIsFlipped] = useState({});
-    const { isModalActive, projectsList } = useGlobalStateContext();
+    const { isModalActive, projectList } = useGlobalStateContext();
     const globalDispatch = useGlobalDispatchContext();
 
     useEffect(() => {
+        unFlip();
+    }, []);
+
+    const unFlip = () => {
         const initializeFlipped = {};
-        projectsList.forEach((item, idx) => {
+        projectList.forEach((item, idx) => {
             initializeFlipped[idx] = false;
         });
         setIsFlipped(initializeFlipped);
-    }, []);
+    };
+
+    const handleReset = () => {
+        unFlip();
+        globalDispatch({
+            type: "RESET_PROJECTLIST",
+        });
+    };
 
     const handleCardClick = (hasContent, title, idx) => {
         hasContent
@@ -291,10 +302,16 @@ const HomeProjects = () => {
                                 }}
                             ></AddProjectButton>
                             <div></div>
-                            <ResetProjectButton>Reset</ResetProjectButton>
+                            <ResetProjectButton
+                                onClick={() => {
+                                    handleReset();
+                                }}
+                            >
+                                Reset
+                            </ResetProjectButton>
                         </ProjectsOptions>
                         <ProjectsGrid>
-                            {projectsList.map(
+                            {projectList.map(
                                 (
                                     {
                                         title,

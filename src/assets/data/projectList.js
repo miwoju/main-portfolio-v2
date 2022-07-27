@@ -1,4 +1,4 @@
-export const projectsList = [
+export const projectList = [
     {
         title: "Genshin Wish Simulator",
         // bgColor: "#fd5b78",
