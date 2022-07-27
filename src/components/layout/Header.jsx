@@ -4,6 +4,8 @@ import styled from "styled-components";
 import { Container, Flex } from "../../styles/globalStyles";
 import { Link } from "react-router-dom";
 
+import { device } from "../../util/device";
+
 const StyledHeaderNav = styled.nav`
     position: absolute;
     top: 40px;
@@ -16,6 +18,9 @@ const StyledHeaderNav = styled.nav`
 const Logo = styled.div`
     font-size: 2.4rem;
     font-weight: 500;
+    @media ${device.extraSmall} {
+        font-size: 2rem;
+    }
     a {
         color: ${(props) => props.theme.text};
     }
@@ -31,10 +36,19 @@ const NavItem = styled.li`
     list-style-type: none;
     font-size: 1.8rem;
     text-transform: capitalize;
-
+    @media ${device.extraSmall} {
+        font-size: 1.6rem;
+        a {
+            margin: 7px;
+        }
+    }
     a {
         padding: 10px;
         margin: 10px;
+        @media ${device.extraSmall} {
+            padding: 8px;
+            margin: 0px;
+        }
         &:hover {
             /* color: ${(props) => props.theme.text}; */
             color: #fff;

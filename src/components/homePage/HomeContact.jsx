@@ -6,6 +6,8 @@ import SectionHeader from "../SectionHeader";
 
 import { motion } from "framer-motion";
 
+import { device } from "../../util/device";
+
 const StyledHomeContact = styled.section`
     padding: 100px 0;
     background-color: ${(props) => props.theme.primary};
@@ -13,7 +15,6 @@ const StyledHomeContact = styled.section`
     .input {
         font-size: 1.6rem;
         padding: 10px;
-        width: 600px;
         margin-bottom: 15px;
         outline: none;
         border: none;
@@ -22,8 +23,13 @@ const StyledHomeContact = styled.section`
 const Form = styled.form`
     display: flex;
     flex-direction: column;
+    /* background-color: red; */
+    width: 600px;
     /* background: ${(props) => props.theme.background}; */
     /* padding: 20px; */
+    @media ${device.extraSmall} {
+        width: 100%;
+    }
 `;
 const Label = styled.label`
     font-size: 1.6rem;
@@ -61,7 +67,7 @@ const HomeContact = ({}) => {
                         subheader="Want to work on something together? Have any questions?
                         Comments?"
                     >
-                        Say Hi
+                        Say Hello
                     </SectionHeader>
                     <Form>
                         <Input

@@ -56,6 +56,9 @@ const Content = styled(motion.p)`
     padding: 0 80px;
     line-height: 2em;
     text-align: ${(props) => (props.skills ? "justify" : "center")};
+    @media ${device.extraSmall} {
+        display: none;
+    }
 `;
 
 const Highlight = styled.span`
@@ -67,10 +70,22 @@ const SkillsContainer = styled(motion.div)`
     position: relative;
     color: ${(props) => props.theme.text};
     background-color: #fff;
-    padding: 10px 18px 18px 18px;
+    padding: 10px 30px 18px 30px;
     border-radius: 5px;
     box-shadow: ${(props) => props.theme.boxShadowFar};
     z-index: 2;
+    width: 580px;
+    @media ${device.medium} {
+        width: 500px;
+    }
+    @media ${device.small} {
+        padding: 10px 12px 0px 12px;
+
+        width: 400px;
+    }
+    @media ${device.extraSmall} {
+        width: 100%;
+    }
 `;
 
 const ArrowIcon = styled.div`
@@ -86,6 +101,12 @@ const ArrowIcon = styled.div`
     top: 50%;
     transform: translateY(-50%);
     z-index: 3;
+    @media ${device.extraSmall} {
+        display: none;
+    }
+    @media ${device.small} {
+        width: 30px;
+    }
     &:hover {
         color: #000;
         background: rgba(255, 255, 255, 0.6);
@@ -107,16 +128,17 @@ const ArrowIcon = styled.div`
 
 const SkillProgress = styled(motion.div)`
     cursor: pointer;
-    margin: 12px;
-    width: 520px;
+    margin: 12px 0;
+    /* width: 100%; */
+    /* width: 520px; */
     background-color: darkgray;
     white-space: nowrap;
-    @media ${device.medium} {
+    /* @media ${device.medium} {
         width: 450px;
     }
     @media ${device.small} {
         width: 400px;
-    }
+    } */
     /* box-shadow: ${(props) => props.theme.boxShadowClose}; */
     .progress-bar {
         height: 100%;

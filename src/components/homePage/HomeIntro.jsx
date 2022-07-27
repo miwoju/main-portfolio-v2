@@ -30,9 +30,18 @@ const IntroBackdrop = styled(motion.div)`
 
 const CardGrid = styled.div`
     position: absolute;
-    display: flex;
+    /* display: flex; */
     align-items: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
     /* margin-top: 80px; */
+    @media ${device.small} {
+        /* grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr; */
+        transform: scale(0.5);
+        /* height: 150px;
+        width: 100px; */
+    }
 `;
 const CardGridItem = styled(motion.a)`
     position: relative;
@@ -52,9 +61,9 @@ const CardGridItem = styled(motion.a)`
         font-size: 1.6rem;
         color: #000;
     }
-
-    /* @media ${device.small} {
-        height: 150px;
+    /* 
+    @media ${device.small} {
+        height: 200px;
         width: 100px;
     } */
 `;
@@ -89,7 +98,10 @@ const IMGWrapper = styled(motion.div)`
 
 const HomeIntro = () => {
     const [displayCardGrid, setDisplayCardGrid] = useState(false);
-    const [ref, inView] = useInView({ rootMargin: "-400px" });
+    const [ref, inView] = useInView({
+        // rootMargin: "-400px",
+        threshold: 0.6,
+    });
 
     const name = "Richard Shin";
     const description = ["A", "Full", "Stacks", "Web Developer"];
@@ -293,7 +305,7 @@ const HomeIntro = () => {
     ];
 
     return (
-        <StyledHomeIntro>
+        <StyledHomeIntro ref={ref}>
             <IntroBackdrop
                 variants={backdropVar}
                 initial="hidden"
@@ -324,7 +336,7 @@ const HomeIntro = () => {
                         ))}
                     </IntroHeader>
                     {displayCardGrid && (
-                        <CardGrid ref={ref}>
+                        <CardGrid>
                             {introCardGridItems.map(
                                 ({ title, img, bgColor }, i) => (
                                     <CardGridItem

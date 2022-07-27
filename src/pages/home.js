@@ -15,6 +15,7 @@ const Home = () => {
             <HomeIntro />
             <HomeAbout />
             <HomeProjects />
+
             {/* <HomeAddProjectsModal /> */}
 
             {isModalActive === "Genshin Wish Simulator" ? (

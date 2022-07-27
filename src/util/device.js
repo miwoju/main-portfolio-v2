@@ -1,10 +1,12 @@
 const size = {
+    xs: "720px",
     s: "1024px",
     m: "1216px",
     l: "1408px",
 };
 
 export const device = {
+    extraSmall: `(max-width: ${size.xs})`,
     small: `(max-width: ${size.s})`,
     medium: `(max-width: ${size.m})`,
     large: `(max-width: ${size.l})`,

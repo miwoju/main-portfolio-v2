@@ -13,23 +13,24 @@ import {
 import { device } from "../../util/device";
 
 const StyledHomeProjects = styled.section`
-    padding: 100px;
-    @media ${device.small} {
-        padding: 0px;
-    }
+    padding: 100px 0;
     background-color: #e5eaf4;
 `;
 
 const ProjectsContainer = styled.div`
-    /* position: relative; */
     background-color: #fff;
     height: 100%;
-    width: 100%;
+    /* width: 100%; */
     display: grid;
     justify-content: flex-start;
     grid-template-columns: 90px 1fr;
     border-radius: 25px;
     box-shadow: -1px -1px 3px 0px rgba(0, 0, 0, 0.1);
+
+    @media ${device.extraSmall} {
+        grid-template-columns: 1fr;
+        grid-template-rows: 60px 1fr;
+    }
     &:hover {
         box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.1);
     }
@@ -37,12 +38,20 @@ const ProjectsContainer = styled.div`
 `;
 
 const ProjectsOptions = styled.div`
-    /* background-color: blue; */
-    /* padding: 80px 0; */
     border-right: 1px solid #e5eaf4;
-    display: flex;
+    display: grid;
+    justify-items: center;
     align-items: center;
-    flex-direction: column;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto 1fr auto;
+    padding: 25px 0;
+    gap: 40px;
+    @media ${device.extraSmall} {
+        border-bottom: 1px solid #e5eaf4;
+        padding: 0 25px;
+        grid-template-columns: auto auto 1fr auto;
+        grid-template-rows: 1fr;
+    }
     /* justify-content: space-between; */
 `;
 
@@ -80,19 +89,20 @@ const AddProjectButton = styled.button`
 const ResetProjectButton = styled.button`
     border: none;
     font-size: 1rem;
-    padding: 5px;
-    justify-self: end;
-    margin-top: 40px;
+    padding: 8px;
+    /* justify-self: end; */
+    /* margin-top: 40px; */
     cursor: pointer;
     font-weight: 700;
 `;
 
 const ProjectsGrid = styled.div`
-    padding: 100px 40px;
+    padding: 40px 40px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 25px;
     place-items: center;
+
     /* background-color: yellow; */
     /* border-radius: 20px; */
     @media ${device.large} {
@@ -266,7 +276,6 @@ const HomeProjects = () => {
                         <ProjectsOptions>
                             <p
                                 style={{
-                                    padding: "25px 0 50px 0",
                                     fontWeight: 700,
                                     fontSize: "12px",
                                 }}
@@ -281,7 +290,8 @@ const HomeProjects = () => {
                                     });
                                 }}
                             ></AddProjectButton>
-                            {/* <ResetProjectButton>Reset</ResetProjectButton> */}
+                            <div></div>
+                            <ResetProjectButton>Reset</ResetProjectButton>
                         </ProjectsOptions>
                         <ProjectsGrid>
                             {projectsList.map(
