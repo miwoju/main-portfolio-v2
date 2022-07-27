@@ -71,9 +71,9 @@ const ScrollToTop = styled.button`
     transform: translateX(-50%);
     cursor: pointer;
     transition: all 0.2s ease-in-out;
-    @media ${device.small} {
+    /* @media ${device.small} {
         display: none;
-    }
+    } */
     &:hover {
         transform: scale(1.1);
     }
@@ -131,7 +131,7 @@ const ProjectsModal = ({ children }) => {
                 <CloseButton />
                 <ModalContentTitle ref={ref}>{isModalActive}</ModalContentTitle>
                 <ModalContentContainer>{children}</ModalContentContainer>
-                {inView && (
+                {!inView && (
                     <ScrollToTop
                         onClick={(e) =>
                             scrollRef.current.scrollTo({

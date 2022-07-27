@@ -15,6 +15,7 @@ import { device } from "../../util/device";
 const StyledHomeProjects = styled.section`
     padding: 100px 0;
     background-color: #e5eaf4;
+    overflow-x: hidden;
 `;
 
 const ProjectsContainer = styled.div`
