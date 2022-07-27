@@ -360,7 +360,7 @@ const HomeAbout = () => {
                         animate={inView ? "show" : "hidden"}
                         variants={infoContainerVar}
                     >
-                        <Label variants={infoItemVar}>Now why choose me?</Label>
+                        <Label variants={infoItemVar}>Why me?</Label>
                         <Content variants={infoItemVar}>
                             A Perfectionist.
                             <br />
@@ -368,7 +368,7 @@ const HomeAbout = () => {
                             <br />
                             Prioritizes clean, fast, responsive code.
                             <br />
-                            And I work really, <Highlight>
+                            And I like working <Highlight>
                                 really
                             </Highlight>{" "}
                             hard.

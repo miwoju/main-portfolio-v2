@@ -113,7 +113,7 @@ const ProjectsGrid = styled.div`
         grid-template-columns: 1fr;
     }
     @media ${device.extraSmall} {
-        padding: 20px 20px;
+        padding: 25px 25px;
     }
 `;
 

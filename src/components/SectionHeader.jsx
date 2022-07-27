@@ -18,6 +18,7 @@ const SubHeader = styled.header`
     font-weight: 400;
     font-size: 1.6rem;
     margin-top: 30px;
+    max-width: 600px;
 `;
 
 const SectionHeader = ({ children, gridArea, color, subheader }) => {

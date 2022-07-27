@@ -65,7 +65,8 @@ const HomeContact = () => {
                     <SectionHeader
                         color="#000"
                         subheader="Want to work on something together? Have any questions?
-                        Comments?"
+                        Email me at: miwoju.business@gmail.com
+                    "
                     >
                         Say Hello
                     </SectionHeader>
