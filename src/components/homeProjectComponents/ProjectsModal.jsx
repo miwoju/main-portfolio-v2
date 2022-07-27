@@ -67,13 +67,10 @@ const ScrollToTop = styled.button`
     z-index: 99;
     font-size: 1.5rem;
     bottom: 50px;
-    left: 50%;
-    transform: translateX(-50%);
+    /* left: 50%; */
+    /* transform: translateX(-50%); */
     cursor: pointer;
     transition: all 0.2s ease-in-out;
-    /* @media ${device.small} {
-        display: none;
-    } */
     &:hover {
         transform: scale(1.1);
     }
