@@ -16,6 +16,8 @@ const StyledCloseButton = styled.button`
     cursor: pointer;
     &:hover {
         box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+        transform: rotate(90deg);
+        transition: transform 0.2s ease-in-out;
     }
 `;
 
@@ -24,8 +26,7 @@ const ButtonWrapper = styled.div`
     height: 100%;
     &:hover {
         background-color: rgba(${(props) => props.theme.secondaryHex} 0.4);
-        transform: rotate(90deg);
-        transition: transform 0.2s ease-in-out;
+        /* transition: transform 0.2s ease-in-out; */
     }
 
     div {
@@ -50,7 +51,7 @@ const CloseButton = () => {
     const globalDispatch = useGlobalDispatchContext();
     return (
         <StyledCloseButton
-            onClick={(e) =>
+            onClick={() =>
                 globalDispatch({
                     type: "TOGGLE_MODAL",
                     payload: false,

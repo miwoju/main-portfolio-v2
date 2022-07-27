@@ -276,7 +276,7 @@ const HomeProjects = () => {
               });
     };
 
-    console.log(isFlipped);
+    // console.log(isFlipped);
     return (
         <StyledHomeProjects id="projects">
             <Container>
