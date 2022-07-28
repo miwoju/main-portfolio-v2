@@ -10,6 +10,8 @@ export const device = {
     small: `(max-width: ${size.s})`,
     medium: `(max-width: ${size.m})`,
     large: `(max-width: ${size.l})`,
+    extraSmallReverse: `(min-width: ${size.xs})`,
+
     // @media (min-width: 1024px) {
     //     max-width: 960px;
     // }

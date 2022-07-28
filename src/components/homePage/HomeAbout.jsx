@@ -139,13 +139,29 @@ const SkillProgress = styled(motion.div)`
     @media ${device.small} {
         width: 400px;
     } */
-    /* box-shadow: ${(props) => props.theme.boxShadowClose}; */
+
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+    @media ${device.extraSmallReverse} {
+        ${(props) =>
+            props.selected &&
+            css`
+                box-shadow: 0 0 0 3px rgba(0, 0, 0, 1);
+            `}
+    }
     .progress-bar {
         height: 100%;
         background-color: ${(props) => props.theme.secondary};
         display: flex;
         align-items: center;
         justify-content: space-between;
+        color: #fff;
+        @media ${device.extraSmallReverse} {
+            ${(props) =>
+                props.selected &&
+                css`
+                    color: #000;
+                `}
+        }
         p {
             font-size: 1.4rem;
             font-weight: 500;
@@ -261,28 +277,13 @@ const HomeAbout = () => {
                                 key={index}
                                 onClick={() => handleSelect(index)}
                                 ref={index === 5 ? ref : null}
-                                style={
-                                    selected === index
-                                        ? {
-                                              boxShadow:
-                                                  "0 0 0 3px rgba(0, 0, 0, 1)",
-                                          }
-                                        : {
-                                              boxShadow:
-                                                  "1px 1px 3px rgba(0, 0, 0, 0.6)",
-                                          }
-                                }
+                                selected={selected === index}
                             >
                                 <motion.div
                                     variants={progressBarVar}
                                     custom={progress}
                                     className="progress-bar"
-                                    style={{
-                                        color:
-                                            selected === index
-                                                ? "#000"
-                                                : "#fff",
-                                    }}
+                                    selected={selected === index}
                                 >
                                     <p>{name}</p>
                                     <CountUp
