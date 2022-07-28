@@ -12,6 +12,8 @@ import Navigation from "./components/layout/Navigation";
 import Footer from "./components/layout/Footer";
 import { useGlobalStateContext } from "./components/context/globalContext";
 import { Helmet, HelmetProvider } from "react-helmet-async";
+
+import aboutImg from "./assets/images/about-img.jpg";
 // import { GlobalProvider } from "./components/context/globalContext";
 
 const GlobalStyle = createGlobalStyle`
@@ -81,6 +83,11 @@ function App() {
                     <meta
                         name="description"
                         content="Miwoju's Portfolio in 2022"
+                    />
+                    <meta
+                        property="og:image"
+                        key="og:image"
+                        content="%PUBLIC_URL%/about-img.jpg"
                     />
                     <link
                         rel="icon"

@@ -33,14 +33,17 @@ const ModalContent = styled(motion.div)`
     background-color: #faf9f9;
     /* color: #ababab; */
     margin: 0px auto;
-    padding: 40px 0;
+    padding: 40px 40px;
     /* border: 1px solid #888; */
     height: 100%;
     overflow: auto; /* Enable scroll if needed */
-
+    max-width: 1200px;
     width: 80%; /* Could be more or less, depending on screen size */
     @media ${device.small} {
         width: 100%;
+    }
+    @media ${device.extraSmall} {
+        padding: 40px 0px;
     }
     border-radius: 5px;
     box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
@@ -48,7 +51,7 @@ const ModalContent = styled(motion.div)`
 const ModalContentContainer = styled.div`
     margin: 0 auto;
     /* width: 800px; */
-    max-width: 800px;
+    max-width: 1000px;
 `;
 
 const ModalContentTitle = styled.h3`

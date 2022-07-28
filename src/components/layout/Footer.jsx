@@ -12,6 +12,9 @@ const Socials = styled(motion.div)`
     i {
         cursor: pointer;
         padding: 20px;
+        &:hover {
+            color: ${(props) => props.theme.secondary};
+        }
     }
 `;
 
