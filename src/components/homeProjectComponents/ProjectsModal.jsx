@@ -39,6 +39,8 @@ const ModalContent = styled(motion.div)`
     overflow: auto; /* Enable scroll if needed */
     max-width: 1200px;
     width: 80%; /* Could be more or less, depending on screen size */
+    display: flex;
+    flex-direction: column;
     @media ${device.small} {
         width: 100%;
     }
@@ -70,12 +72,12 @@ const ScrollToTop = styled.button`
     z-index: 99;
     font-size: 1.5rem;
     bottom: 50px;
-    /* left: 50%; */
-    /* transform: translateX(-50%); */
+    left: 50%;
+    transform: translateX(-50%);
     cursor: pointer;
     transition: all 0.2s ease-in-out;
     &:hover {
-        transform: scale(1.1);
+        transform: scale(1.1) translateX(-45%);
     }
 `;
 
