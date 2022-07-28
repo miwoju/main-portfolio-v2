@@ -38,11 +38,10 @@ const CardGrid = styled.div`
     grid-template-columns: 1fr 1fr 1fr;
     /* margin-top: 80px; */
     @media ${device.small} {
-        /* grid-template-columns: 1fr;
-        grid-template-rows: 1fr 1fr 1fr; */
+        transform: scale(0.7);
+    }
+    @media ${device.extraSmall} {
         transform: scale(0.5);
-        /* height: 150px;
-        width: 100px; */
     }
 `;
 const CardGridItem = styled(motion.a)`

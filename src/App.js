@@ -13,7 +13,7 @@ import Footer from "./components/layout/Footer";
 import { useGlobalStateContext } from "./components/context/globalContext";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 
-import aboutImg from "./assets/images/about-img.jpg";
+// import aboutImg from "./assets/images/about-img.jpg";
 // import { GlobalProvider } from "./components/context/globalContext";
 
 const GlobalStyle = createGlobalStyle`

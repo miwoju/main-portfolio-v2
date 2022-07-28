@@ -179,7 +179,7 @@ const SkillProgress = styled(motion.div)`
 const HomeAbout = () => {
     const [selected, setSelected] = useState(null);
     const [containerPosition, setContainerPosition] = useState("right");
-    const [ref, inView] = useInView();
+    const [ref, inView] = useInView({ rootMargin: "-30%" });
 
     const handleSelect = (index) => {
         setContainerPosition("left");
@@ -255,6 +255,7 @@ const HomeAbout = () => {
                         variants={skillsContainerVar}
                         layout
                         transition={spring}
+                        ref={ref}
                     >
                         {containerPosition === "right" && (
                             <ArrowIcon onClick={() => handleClick("left")} left>
@@ -276,7 +277,7 @@ const HomeAbout = () => {
                                 whileHover={{ scale: 1.02 }}
                                 key={index}
                                 onClick={() => handleSelect(index)}
-                                ref={index === 5 ? ref : null}
+                                // ref={index === 5 ? ref : null}
                                 selected={selected === index}
                             >
                                 <motion.div
