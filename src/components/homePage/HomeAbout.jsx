@@ -214,12 +214,13 @@ const HomeAbout = () => {
         hidden: {},
         show: { transition: { staggerChildren: 0.4 } },
     };
+
     const infoItemVar = {
         hidden: { opacity: 0, scale: 1.1 },
         show: {
             opacity: 1,
             scale: 1,
-            transition: { duration: 1, ease: "easeInOut" },
+            transition: { duration: 0.6, ease: "easeInOut" },
         },
     };
 
@@ -238,94 +239,112 @@ const HomeAbout = () => {
     };
     return (
         <StyledHomeAbout id="about">
-            <Container>
-                <SectionHeader gridArea="header">About Me</SectionHeader>
-                <Flex
-                    fullHeight
-                    style={{
-                        justifyContent:
-                            containerPosition === "left"
-                                ? "flex-start"
-                                : "flex-end",
-                    }}
-                >
-                    <SkillsContainer
-                        initial="hidden"
-                        animate={inView ? "show" : "hidden"}
-                        variants={skillsContainerVar}
-                        layout
-                        transition={spring}
-                        ref={ref}
+            <motion.div
+                initial="hidden"
+                // animate={inView ? "show" : "hidden"}
+                variants={skillsContainerVar}
+                layout
+                transition={spring}
+                whileInView="show"
+                viewport={{ amount: 0.5 }}
+                // ref={ref}
+            >
+                <Container>
+                    <SectionHeader gridArea="header">About Me</SectionHeader>
+                    <Flex
+                        fullHeight
+                        style={{
+                            justifyContent:
+                                containerPosition === "left"
+                                    ? "flex-start"
+                                    : "flex-end",
+                        }}
                     >
-                        {containerPosition === "right" && (
-                            <ArrowIcon onClick={() => handleClick("left")} left>
-                                <i className="fas fa-chevron-left"></i>
-                            </ArrowIcon>
-                        )}
-                        {containerPosition === "left" && (
-                            <ArrowIcon
-                                onClick={() => handleClick("right")}
-                                right
-                            >
-                                <i className="fas fa-chevron-right"></i>
-                            </ArrowIcon>
-                        )}
-                        <Label>Languages and Tools</Label>
-                        <SubLabel>Mastery</SubLabel>
-                        {skillsList.map(({ name, progress }, index) => (
-                            <SkillProgress
-                                whileHover={{ scale: 1.02 }}
-                                key={index}
-                                onClick={() => handleSelect(index)}
-                                // ref={index === 5 ? ref : null}
-                                selected={selected === index}
-                            >
-                                <motion.div
-                                    variants={progressBarVar}
-                                    custom={progress}
-                                    className="progress-bar"
-                                    selected={selected === index}
-                                >
-                                    <p>{name}</p>
-                                    <CountUp
-                                        start={0}
-                                        end={progress}
-                                        suffix="%"
-                                        className="progress-percentage"
-                                    />
-                                </motion.div>
-                            </SkillProgress>
-                        ))}
-                    </SkillsContainer>
-                    <InfoContainer
-                        initial="hidden"
-                        animate={inView ? "show" : "hidden"}
-                        variants={infoContainerVar}
-                    >
-                        <Label variants={infoItemVar}>Why me?</Label>
-                        <Content variants={infoItemVar}>
-                            A Perfectionist.
-                            <br />
-                            Loves UX/UI design.
-                            <br />
-                            Prioritizes clean, fast, responsive code.
-                            <br />
-                            And I like working <Highlight>
-                                really
-                            </Highlight>{" "}
-                            hard.
-                        </Content>
-                    </InfoContainer>
-                    {selected !== null && containerPosition === "left" && (
-                        <InfoContainer skills>
-                            <Label>{skillsList[selected].name}</Label>
-                            <Content skills>
-                                {skillsList[selected].content}
+                        <InfoContainer
+                        // initial="hidden"
+                        // animate="show"
+                        // // animate={inView ? "show" : "hidden"}
+                        // variants={infoContainerVar}
+                        >
+                            <Label variants={infoItemVar}>Why me?</Label>
+                            <Content variants={infoItemVar}>
+                                A Perfectionist.
+                                <br />
+                                Loves UX/UI design.
+                                <br />
+                                Prioritizes clean, fast, responsive code.
+                                <br />
+                                And I like working <Highlight>
+                                    really
+                                </Highlight>{" "}
+                                hard.
                             </Content>
                         </InfoContainer>
-                    )}
-                </Flex>
-            </Container>
+                        <SkillsContainer
+                        // initial="hidden"
+                        // // animate={inView ? "show" : "hidden"}
+                        // variants={skillsContainerVar}
+                        // layout
+                        // transition={spring}
+                        // whileInView="show"
+                        // viewport={{ amount: 0.5 }}
+                        // // ref={ref}
+                        >
+                            {containerPosition === "right" && (
+                                <ArrowIcon
+                                    onClick={() => handleClick("left")}
+                                    left
+                                >
+                                    <i className="fas fa-chevron-left"></i>
+                                </ArrowIcon>
+                            )}
+                            {containerPosition === "left" && (
+                                <ArrowIcon
+                                    onClick={() => handleClick("right")}
+                                    right
+                                >
+                                    <i className="fas fa-chevron-right"></i>
+                                </ArrowIcon>
+                            )}
+                            <Label>Languages and Tools</Label>
+                            <SubLabel>Mastery</SubLabel>
+                            {skillsList.map(({ name, progress }, index) => (
+                                <SkillProgress
+                                    whileHover={{ scale: 1.02 }}
+                                    key={index}
+                                    onClick={() => handleSelect(index)}
+                                    // ref={index === 5 ? ref : null}
+                                    selected={selected === index}
+                                >
+                                    <motion.div
+                                        variants={progressBarVar}
+                                        custom={progress}
+                                        className="progress-bar"
+                                        selected={selected === index}
+                                    >
+                                        <p>{name}</p>
+                                        <CountUp
+                                            start={0}
+                                            end={progress}
+                                            suffix="%"
+                                            className="progress-percentage"
+                                        />
+                                    </motion.div>
+                                </SkillProgress>
+                            ))}
+                        </SkillsContainer>
+
+                        {selected !== null && containerPosition === "left" && (
+                            <InfoContainer skills>
+                                <Label>{skillsList[selected].name}</Label>
+                                <Content skills>
+                                    {skillsList[selected].content}
+                                </Content>
+                            </InfoContainer>
+                        )}
+                    </Flex>
+                </Container>
+            </motion.div>
         </StyledHomeAbout>
     );
 };
