@@ -346,6 +346,7 @@ const HomeProjects = () => {
                                     idx
                                 ) => (
                                     <motion.div
+                                        key={idx}
                                         whileHover={
                                             !isModalActive && {
                                                 scale: 1.04,
@@ -363,7 +364,6 @@ const HomeProjects = () => {
                                                     idx
                                                 )
                                             }
-                                            key={idx}
                                             variants={projectCardVar}
                                             style={
                                                 isModalActive === title

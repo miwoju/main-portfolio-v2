@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 //Styled components
 import styled from "styled-components";
 import { Container, Flex } from "../../styles/globalStyles";
+import { socialsList } from "../../assets/data/socialsList";
 
 const FooterNav = styled.nav`
     height: 300px;
@@ -28,31 +29,27 @@ const Footer = () => {
     const iconHover = {
         scale: 1.5,
     };
+
     return (
         <FooterNav>
             <Container>
                 <Flex fullHeight column center>
                     <Socials>
-                        <motion.i
-                            whileHover={iconHover}
-                            className="fab fa-github"
-                        ></motion.i>
-                        <motion.i
-                            whileHover={iconHover}
-                            className="fab fa-twitter"
-                        ></motion.i>
-                        <motion.i
-                            whileHover={iconHover}
-                            className="fab fa-instagram"
-                        ></motion.i>
-                        <motion.i
-                            whileHover={iconHover}
-                            className="fab fa-tiktok"
-                        ></motion.i>
-                        {/* <motion.i
-                            whileHover={iconHover}
-                            className="fab fa-facebook"
-                        ></motion.i> */}
+                        {socialsList.map(
+                            ({ href, fontAwesomeClassName }, idx) => (
+                                <a
+                                    href={href}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    key={idx}
+                                >
+                                    <motion.i
+                                        whileHover={iconHover}
+                                        className={fontAwesomeClassName}
+                                    ></motion.i>
+                                </a>
+                            )
+                        )}
                     </Socials>
                     <Copyright>
                         ©Copyright 2020 | Designed and Developed by Richard D
