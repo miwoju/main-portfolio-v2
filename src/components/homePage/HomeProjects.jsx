@@ -256,7 +256,7 @@ const projectCardInnerVar = {
 const HomeProjects = () => {
     const [isFlipped, setIsFlipped] = useState({});
     const { isModalActive, projectList } = useGlobalStateContext();
-    const [ref, inView] = useInView({ rootMargin: "-40%" });
+    const [ref, inView] = useInView({ rootMargin: "-50% 0px -50% 0px" });
 
     const globalDispatch = useGlobalDispatchContext();
 
