@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
 //Styled components
 import styled from "styled-components";
@@ -18,7 +19,7 @@ const StyledHomeProjects = styled.section`
     overflow-x: hidden;
 `;
 
-const ProjectsContainer = styled.div`
+const ProjectsContainer = styled(motion.div)`
     background-color: #fff;
     height: 100%;
     /* width: 100%; */
@@ -215,22 +216,30 @@ const IMG = styled.img`
     max-height: 120px;
     user-select: none;
 `;
+const projectContainerVar = {
+    hidden: { opacity: 0, x: -200 },
+    show: {
+        opacity: 1,
+        x: 0,
+        transition: {
+            duration: 0.4,
+            delayChildren: 0.2,
+            staggerChildren: 0.07,
+        },
+    },
+};
 
 const projectCardVar = {
-    hidden: {},
+    hidden: {
+        opacity: 0,
+        x: -50,
+    },
     show: {
-        scale: 1,
-        rotate: 0,
+        opacity: 1,
         x: 0,
         y: 0,
-        // boxShadow: "-2px -2px 3px 0px rgba(0, 0, 0, 0.4)",
-    },
-    hover: {
-        scale: 1.04,
-        rotate: -0.5,
-        x: 7,
-        y: -7,
-        // boxShadow: "-4px -4px 8px 0px rgba(0, 0, 0, 0.3)",
+        scale: 1,
+        rotate: 0,
     },
 };
 
@@ -247,6 +256,8 @@ const projectCardInnerVar = {
 const HomeProjects = () => {
     const [isFlipped, setIsFlipped] = useState({});
     const { isModalActive, projectList } = useGlobalStateContext();
+    const [ref, inView] = useInView({ threshold: 0.5 });
+
     const globalDispatch = useGlobalDispatchContext();
 
     const unFlip = useCallback(() => {
@@ -288,7 +299,12 @@ const HomeProjects = () => {
                 <Flex center column fullHeight>
                     <SectionHeader>Projects</SectionHeader>
                     {/* <HomeProjectsDetailed /> */}
-                    <ProjectsContainer>
+                    <ProjectsContainer
+                        initial="hidden"
+                        animate={inView && "show"}
+                        variants={projectContainerVar}
+                        ref={ref}
+                    >
                         <ProjectsOptions>
                             <p
                                 style={{
@@ -329,113 +345,124 @@ const HomeProjects = () => {
                                     },
                                     idx
                                 ) => (
-                                    <ProjectCard
-                                        onClick={() =>
-                                            handleCardClick(
-                                                hasContent,
-                                                title,
-                                                idx
-                                            )
-                                        }
-                                        key={idx}
-                                        initial="hidden"
-                                        animate="show"
-                                        variants={projectCardVar}
+                                    <motion.div
                                         whileHover={
-                                            isModalActive ? "show" : "hover"
-                                        }
-                                        style={
-                                            isModalActive === title
-                                                ? { zIndex: 10 }
-                                                : { zIndex: 1 }
+                                            !isModalActive && {
+                                                scale: 1.04,
+                                                rotate: -0.5,
+                                                x: 7,
+                                                y: -7,
+                                            }
                                         }
                                     >
-                                        <ProjectCardInner
-                                            variants={projectCardInnerVar}
-                                            className={
-                                                isModalActive === title &&
-                                                hasContent
-                                                    ? "rotate-into-content"
-                                                    : isFlipped[idx]
-                                                    ? "rotate"
-                                                    : "rotate-back"
+                                        <ProjectCard
+                                            onClick={() =>
+                                                handleCardClick(
+                                                    hasContent,
+                                                    title,
+                                                    idx
+                                                )
+                                            }
+                                            key={idx}
+                                            variants={projectCardVar}
+                                            style={
+                                                isModalActive === title
+                                                    ? { zIndex: 10 }
+                                                    : { zIndex: 1 }
                                             }
                                         >
-                                            <ProjectCardFront
-                                                style={{
-                                                    backgroundColor: bgColor,
-                                                }}
+                                            <ProjectCardInner
+                                                variants={projectCardInnerVar}
+                                                className={
+                                                    isModalActive === title &&
+                                                    hasContent
+                                                        ? "rotate-into-content"
+                                                        : isFlipped[idx]
+                                                        ? "rotate"
+                                                        : "rotate-back"
+                                                }
                                             >
-                                                <p className="content">
-                                                    {content}
-                                                </p>
-                                                {imgSrc && (
-                                                    <IMG
-                                                        src={require(`../../assets/images/${imgSrc}`)}
-                                                    />
-                                                )}
-                                                <h4 className="title">
-                                                    {/* <a
+                                                <ProjectCardFront
+                                                    style={{
+                                                        backgroundColor:
+                                                            bgColor,
+                                                    }}
+                                                >
+                                                    <p className="content">
+                                                        {content}
+                                                    </p>
+                                                    {imgSrc && (
+                                                        <IMG
+                                                            src={require(`../../assets/images/${imgSrc}`)}
+                                                        />
+                                                    )}
+                                                    <h4 className="title">
+                                                        {/* <a
                                                         href={github}
                                                         target="_blank"
                                                     > */}
-                                                    {title}
-                                                    {/* </a> */}
-                                                </h4>
-                                            </ProjectCardFront>
-                                            <ProjectCardBack
-                                                // style={{
-                                                //     backgroundColor: bgColor,
-                                                // }}
-                                                bgColor={bgColor}
-                                            >
-                                                {!hasContent && (
-                                                    <>
-                                                        <div>
+                                                        {title}
+                                                        {/* </a> */}
+                                                    </h4>
+                                                </ProjectCardFront>
+                                                <ProjectCardBack
+                                                    // style={{
+                                                    //     backgroundColor: bgColor,
+                                                    // }}
+                                                    bgColor={bgColor}
+                                                >
+                                                    {!hasContent && (
+                                                        <>
                                                             <div>
-                                                                <p>Site:</p>
-                                                                <a
-                                                                    href={href}
-                                                                    rel="noopener noreferrer"
-                                                                    target="_blank"
-                                                                    onClick={(
-                                                                        e
-                                                                    ) =>
-                                                                        e.stopPropagation()
-                                                                    }
-                                                                >
-                                                                    {href}
-                                                                </a>
-                                                            </div>
-                                                            {/* {imgSrc && (
+                                                                <div>
+                                                                    <p>Site:</p>
+                                                                    <a
+                                                                        href={
+                                                                            href
+                                                                        }
+                                                                        rel="noopener noreferrer"
+                                                                        target="_blank"
+                                                                        onClick={(
+                                                                            e
+                                                                        ) =>
+                                                                            e.stopPropagation()
+                                                                        }
+                                                                    >
+                                                                        {href}
+                                                                    </a>
+                                                                </div>
+                                                                {/* {imgSrc && (
                                                             <IMG
                                                                 src={require(`../../assets/images/${imgSrc}`)}
                                                             />
                                                         )} */}
-                                                            <div>
-                                                                <p>Github:</p>
-                                                                <a
-                                                                    href={
-                                                                        github
-                                                                    }
-                                                                    rel="noopener noreferrer"
-                                                                    target="_blank"
-                                                                    onClick={(
-                                                                        e
-                                                                    ) =>
-                                                                        e.stopPropagation()
-                                                                    }
-                                                                >
-                                                                    {github}
-                                                                </a>
+                                                                <div>
+                                                                    <p>
+                                                                        Github:
+                                                                    </p>
+                                                                    <a
+                                                                        href={
+                                                                            github
+                                                                        }
+                                                                        rel="noopener noreferrer"
+                                                                        target="_blank"
+                                                                        onClick={(
+                                                                            e
+                                                                        ) =>
+                                                                            e.stopPropagation()
+                                                                        }
+                                                                    >
+                                                                        {github}
+                                                                    </a>
+                                                                </div>
                                                             </div>
-                                                        </div>
-                                                        <h4>{title}</h4>
-                                                    </>
-                                                )}
-                                            </ProjectCardBack>
-                                        </ProjectCardInner>
-                                    </ProjectCard>
+                                                            <h4>{title}</h4>
+                                                        </>
+                                                    )}
+                                                </ProjectCardBack>
+                                            </ProjectCardInner>
+                                        </ProjectCard>
+                                    </motion.div>
                                 )
                             )}
                             {/* <Unproject whileHover={{ scale: 1.05 }}></Unproject>

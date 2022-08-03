@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 //Pages
-import home from "./pages/Home";
+import home from "./pages/home";
 import notfound from "./pages/notfound";
 //Styled Components
 import { createGlobalStyle, ThemeProvider } from "styled-components";

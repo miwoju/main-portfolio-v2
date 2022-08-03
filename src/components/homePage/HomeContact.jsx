@@ -5,12 +5,14 @@ import { Container, Flex } from "../../styles/globalStyles";
 import SectionHeader from "../SectionHeader";
 
 import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
 import { device } from "../../util/device";
 
-const StyledHomeContact = styled.section`
+const StyledHomeContact = styled(motion.section)`
     padding: 100px 12px;
     background-color: ${(props) => props.theme.primary};
+    overflow-x: hidden;
     /* color: ${(props) => props.theme.textInverse}; */
     .input {
         font-size: 1.6rem;
@@ -20,7 +22,7 @@ const StyledHomeContact = styled.section`
         border: none;
     }
 `;
-const Form = styled.form`
+const Form = styled(motion.form)`
     display: flex;
     flex-direction: column;
     /* background-color: red; */
@@ -36,8 +38,8 @@ const Form = styled.form`
 //     margin: 7px;
 // `;
 
-const Input = styled.input``;
-const TextArea = styled.textarea`
+const Input = styled(motion.input)``;
+const TextArea = styled(motion.textarea)`
     resize: none;
     height: 300px;
 `;
@@ -57,7 +59,50 @@ const Button = styled(motion.button)`
     }
 `;
 
+const formVar = {
+    hidden: {},
+    show: {
+        transition: {
+            // delayChildren: 0.2,
+            staggerChildren: 0.25,
+        },
+    },
+};
+
+const inputVar = {
+    hidden: {
+        opacity: 0,
+        scale: 1.2,
+        x: -200,
+        // y: -200,
+    },
+    show: {
+        opacity: 1,
+        scale: 1,
+        x: 0,
+        // y: 0,
+    },
+};
+
+const buttonVar = {
+    hidden: {
+        opacity: 0,
+        scale: 1.2,
+    },
+    show: {
+        opacity: 1,
+        scale: 1,
+        transition: {
+            opacity: { duration: 0.1 },
+            duration: 0.5,
+            ease: "easeOut",
+        },
+    },
+};
+
 const HomeContact = () => {
+    const [ref, inView] = useInView({ threshold: 0.5 });
+
     return (
         <StyledHomeContact id="contact">
             <Container>
@@ -70,8 +115,14 @@ const HomeContact = () => {
                     >
                         Say Hello
                     </SectionHeader>
-                    <Form>
+                    <Form
+                        ref={ref}
+                        initial="hidden"
+                        animate={inView && "show"}
+                        variants={formVar}
+                    >
                         <Input
+                            variants={inputVar}
                             placeholder="Name"
                             name="name"
                             id="name"
@@ -79,6 +130,7 @@ const HomeContact = () => {
                             type="text"
                         ></Input>
                         <Input
+                            variants={inputVar}
                             placeholder="Email"
                             name="email"
                             id="email"
@@ -86,10 +138,12 @@ const HomeContact = () => {
                             type="text"
                         ></Input>
                         <TextArea
+                            variants={inputVar}
                             placeholder="Comments"
                             className="input"
                         ></TextArea>
                         <Button
+                            variants={buttonVar}
                             type="submit"
                             onClick={(e) => e.preventDefault()}
                             whileHover={{ width: 110 }}
