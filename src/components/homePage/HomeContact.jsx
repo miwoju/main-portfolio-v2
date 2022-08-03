@@ -64,7 +64,7 @@ const formVar = {
     show: {
         transition: {
             // delayChildren: 0.2,
-            staggerChildren: 0.1,
+            staggerChildren: 0.15,
         },
     },
 };

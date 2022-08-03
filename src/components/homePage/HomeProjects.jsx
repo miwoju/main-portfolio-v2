@@ -223,8 +223,8 @@ const projectContainerVar = {
         x: 0,
         transition: {
             duration: 0.4,
-            delayChildren: 0.2,
-            staggerChildren: 0.1,
+            delayChildren: 0.24,
+            staggerChildren: 0.12,
         },
     },
 };
