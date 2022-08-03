@@ -416,20 +416,30 @@ const HomeProjects = () => {
                                                             <div>
                                                                 <div>
                                                                     <p>Site:</p>
-                                                                    <a
-                                                                        href={
-                                                                            href
-                                                                        }
-                                                                        rel="noopener noreferrer"
-                                                                        target="_blank"
-                                                                        onClick={(
-                                                                            e
-                                                                        ) =>
-                                                                            e.stopPropagation()
-                                                                        }
-                                                                    >
-                                                                        {href}
-                                                                    </a>
+                                                                    {href ? (
+                                                                        <a
+                                                                            href={
+                                                                                href
+                                                                            }
+                                                                            rel="noopener noreferrer"
+                                                                            target="_blank"
+                                                                            onClick={(
+                                                                                e
+                                                                            ) =>
+                                                                                e.stopPropagation()
+                                                                            }
+                                                                        >
+                                                                            {
+                                                                                href
+                                                                            }
+                                                                        </a>
+                                                                    ) : (
+                                                                        <p>
+                                                                            No
+                                                                            site
+                                                                            exists.
+                                                                        </p>
+                                                                    )}
                                                                 </div>
                                                                 {/* {imgSrc && (
                                                             <IMG
@@ -440,20 +450,30 @@ const HomeProjects = () => {
                                                                     <p>
                                                                         Github:
                                                                     </p>
-                                                                    <a
-                                                                        href={
+                                                                    {github ? (
+                                                                        <a
+                                                                            href={
+                                                                                github
+                                                                            }
+                                                                            rel="noopener noreferrer"
+                                                                            target="_blank"
+                                                                            onClick={(
+                                                                                e
+                                                                            ) =>
+                                                                                e.stopPropagation()
+                                                                            }
+                                                                        >
+                                                                            {
+                                                                                github
+                                                                            }
+                                                                        </a>
+                                                                    ) : (
+                                                                        <p>
+                                                                            No
                                                                             github
-                                                                        }
-                                                                        rel="noopener noreferrer"
-                                                                        target="_blank"
-                                                                        onClick={(
-                                                                            e
-                                                                        ) =>
-                                                                            e.stopPropagation()
-                                                                        }
-                                                                    >
-                                                                        {github}
-                                                                    </a>
+                                                                            exists.
+                                                                        </p>
+                                                                    )}
                                                                 </div>
                                                             </div>
                                                             <h4>{title}</h4>
