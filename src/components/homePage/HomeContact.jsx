@@ -64,7 +64,7 @@ const formVar = {
     show: {
         transition: {
             // delayChildren: 0.2,
-            staggerChildren: 0.25,
+            staggerChildren: 0.1,
         },
     },
 };
@@ -101,7 +101,7 @@ const buttonVar = {
 };
 
 const HomeContact = () => {
-    const [ref, inView] = useInView({ threshold: 0.5 });
+    const [ref, inView] = useInView({ rootMargin: "-30%" });
 
     return (
         <StyledHomeContact id="contact">
