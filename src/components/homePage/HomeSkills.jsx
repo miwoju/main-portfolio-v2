@@ -40,6 +40,9 @@ const Label = styled(motion.p)`
     font-size: 2.2rem;
     padding: 15px 0 5px 0;
     text-align: center;
+    @media ${device.extraSmall} {
+        display: none;
+    }
 `;
 
 const SubLabel = styled(motion.p)`

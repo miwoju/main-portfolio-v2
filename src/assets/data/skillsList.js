@@ -3,19 +3,19 @@ export const skillsList = [
         name: "CSS, HTML, Javascript",
         progress: 100,
         content:
-            "The basics of web development, utilizing these are a second-nature. I'm using to making complex css UI components",
+            "The basics of web development, utilizing these are a second-nature to me. I'm used to making complex UI components with these languages.",
     },
     {
         name: "React",
         progress: 95,
         content:
-            "As a long time React developer, I am very knowledgeable with React and React Native, from React Hooks to React Context for state management.",
+            "As a long time React developer, I am very knowledgeable with React and React Native libraries, from React legacy to Hooks and React Context.",
     },
     {
         name: "Typescript",
         progress: 90,
         content:
-            "I have picked up Typescript quite recently, and I understand more than enough to utilize it to its full potential.",
+            "Typescript is a lot more code upfront but saves headache when the application becomes too complex. It is almost crucial for bigger, professional applications.",
     },
     {
         name: "Firebase",
@@ -33,24 +33,31 @@ export const skillsList = [
         name: "Styled Components",
         progress: 95,
         content:
-            "Styled Components are my all-time favorite. Whether it's for themes, Framer Motion, or just straight up styling, I am completely comfortable with this library.",
+            "Styled Components is my all-time favorite. Whether it's for themes, Framer Motion, or just straight up styling, I am completely comfortable with this library and know its many advanced use-cases.",
     },
     {
         name: "Gatsby",
         progress: 95,
         content:
-            "Gatbsy has been my go-to framework. I am very well-aware of it's capabilities and use it for most of my recent applications.",
+            "Gatbsy has been my go-to framework for quick personal projects. I am very well-aware of it's capabilities and use it for many of my recent applications.",
+    },
+    {
+        name: "Next",
+        progress: 85,
+        content:
+            "Very useful just like Gatsby. I don't have as much experience as I do with Gatsby, but if I were to build a professional, complex application, I would use Next over Gatsby.",
     },
     {
         name: "Express",
         progress: 85,
-        content: "I have used Express.js a few times for old projects.",
+        content:
+            "I have used Express.js for many backend project work, hand-in-hand with axios. ",
     },
     {
-        name: "Material UI",
-        progress: 100,
+        name: "React Router",
+        progress: 95,
         content:
-            "Very easy and straightforward framework. Although I don't like its outdated design, I am able to use it to create fast mock-up applications.",
+            "Without Nextjs, react router is the way to go. I am very comfortable with react router and have used it in many of my projects.",
     },
     {
         name: "Framer Motion",
