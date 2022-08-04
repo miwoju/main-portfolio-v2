@@ -207,7 +207,7 @@ const ProjectCardBack = styled(ProjectCardShared)`
             /* min-height: 30px; */
             font-size: 15px;
             word-wrap: break-word;
-            /* background-color: rgba(255, 255, 255, 0.8); */
+            background-color: rgba(255, 255, 255, 0.8);
         }
     }
 `;
