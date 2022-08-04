@@ -183,7 +183,7 @@ const SkillProgress = styled(motion.div)`
 const HomeSkills = () => {
     const [selected, setSelected] = useState(null);
     const [containerPosition, setContainerPosition] = useState("right");
-    const [ref, inView] = useInView({ rootMargin: "-30%" });
+    const [ref, inView] = useInView({ rootMargin: "-30% 0% -30% 0%" });
 
     const handleSelect = (index) => {
         setContainerPosition("left");
