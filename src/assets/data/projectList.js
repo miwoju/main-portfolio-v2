@@ -31,10 +31,22 @@ export const projectList = [
         hasContent: false,
     },
     {
-        title: "Tifamela Streamer Blog",
+        title: "Flooring Landing Page",
         // bgColor: "#fd5b78",
         // bgColor: "#a9def9",
         bgColor: "#00A1BE",
+        href: "https://flooring.thekima.com/",
+        content:
+            "Landing page for a flooring company. Personal informations are removed",
+        github: "https://github.com/miwoju/flooring",
+        imgSrc: "flooring.png",
+        hasContent: false,
+    },
+    {
+        title: "Tifamela Streamer Blog",
+        // bgColor: "#fd5b78",
+        // bgColor: "#a9def9",
+        bgColor: "#f7d6e0",
         href: "https://tifamela.thekima.com/",
         content:
             "Showcasing with permission, a cooking blog site for Tifamela, a Twitch streamer.",
