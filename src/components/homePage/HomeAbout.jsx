@@ -12,7 +12,9 @@ import { device } from "../../util/device";
 import { skillsList } from "../../assets/data/skillsList";
 import { aboutMeInfo } from "../../assets/data/aboutMeInfo";
 
-const StyledHomeAbout = styled.section`
+import selfie from "../../assets/images/about-img.jpg";
+
+const StyledHomeAbout = styled(motion.section)`
     /* color: ${(props) => props.theme.textInverse}; */
     /* box-shadow: 4px 4px 16px 4px rgba(0, 0, 0, 0.25); */
 
@@ -29,6 +31,8 @@ const StyledHomeAbout = styled.section`
     justify-content: center; */
     color: ${(props) => props.theme.textInverse};
     background-color: #0f1922;
+    overflow: hidden;
+    height: 0%;
 
     @media ${device.small} {
         grid-template-columns: 1fr;
@@ -52,6 +56,7 @@ const TextContent = styled(motion.div)`
         white-space: pre-wrap;
         font-weight: 500;
         font-family: "Nunito";
+        max-width: 800px;
         .italic {
             font-style: italic;
         }
@@ -61,7 +66,7 @@ const TextContent = styled(motion.div)`
     }
     @media ${device.medium} {
         /* display: none; */
-        padding: 0 50px;
+        padding: 40px 50px;
         p {
             font-size: 1.6rem;
         }
@@ -85,15 +90,27 @@ const AvatarContent = styled(motion.div)`
     } */
 `;
 
-const AvatarIMG = styled.img`
+const AvatarIMG = styled.div`
     width: 100%;
+    height: 100%;
+    background: url(${selfie}) top no-repeat;
+    background-size: cover;
+
     @media ${device.small} {
+        height: 300px;
         width: 40%;
     }
     @media ${device.extraSmall} {
+        height: 400px;
         width: 100%;
     }
 `;
+
+const sectionVariant = {
+    hidden: { height: "0%" },
+    show: { height: "100%" },
+    transition: { duration: 0.4 },
+};
 
 const HomeAbout = () => {
     const [selected, setSelected] = useState(null);
@@ -102,7 +119,12 @@ const HomeAbout = () => {
 
     const { summary } = aboutMeInfo;
     return (
-        <StyledHomeAbout id="about">
+        <StyledHomeAbout
+            id="about"
+            initial="hidden"
+            animate="show"
+            variants={sectionVariant}
+        >
             <AvatarContent>
                 <AvatarIMG src={require(`../../assets/images/about-img.jpg`)} />
             </AvatarContent>
