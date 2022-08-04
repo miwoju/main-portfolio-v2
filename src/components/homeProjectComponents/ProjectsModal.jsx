@@ -23,7 +23,8 @@ const StyledProjectsModal = styled(motion.div)`
     /* background-color: rgba(0, 0, 0, 0.4); */
     /* background-color: rgba(${(props) => props.theme.secondaryHex} 0.4); */
     /* background-color: ${(props) => props.theme.secondary}; */
-    background-color: #f7d6e0;
+    /* background-color: #f7d6e0; */
+    background-color: ${(props) => props.theme.background};
     text-align: center;
     padding: 20px 0;
 `;

@@ -11,10 +11,11 @@ const FooterNav = styled.nav`
 const Socials = styled(motion.div)`
     font-size: 2.8rem;
     i {
+        color: ${(props) => props.theme.background};
         cursor: pointer;
         padding: 20px;
         &:hover {
-            color: ${(props) => props.theme.secondary};
+            color: ${(props) => props.theme.primary};
         }
     }
 `;

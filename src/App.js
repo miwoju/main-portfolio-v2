@@ -59,12 +59,14 @@ function App() {
     const lightTheme = {
         //Blue
         // primary: "#1be7ff",
-        primary: "#b2f7ef",
+        // primary: "#b2f7ef",
+        primary: "#fd5b78",
         primaryHex: "27, 231, 255,",
         //Red
         secondary: "#fd5b78",
         secondaryHex: "253, 91, 120,",
-        background: "#edf6f9",
+        // background: "#edf6f9",
+        background: "#0f1922",
         // backgroundSecondary: "#006d77",
         text: "#504f54",
         textInverse: "#fff",

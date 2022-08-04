@@ -15,7 +15,7 @@ import { device } from "../../util/device";
 
 const StyledHomeProjects = styled.section`
     padding: 100px 0;
-    background-color: #e5eaf4;
+    background-color: #f1f1f1;
     overflow-x: hidden;
 `;
 
@@ -185,9 +185,11 @@ const ProjectCardBack = styled(ProjectCardShared)`
     transform: rotateY(180deg);
     /* border: 2px solid rgba(0, 0, 0, 0.5); */
     /* border: 2px solid rgba(${(props) => props.theme.secondaryHex} 0.7); */
-    box-shadow: 0px 0px 16px 2px rgba(${(props) => props.theme.primaryHex} 0.6);
+    box-shadow: 0px 0px 16px 2px rgba(${(props) => props.theme.primaryHex} 0.4);
 
     background-color: ${(props) => props.bgColor};
+    /* background-color: ${(props) => props.theme.background}; */
+    /* color: ${(props) => props.theme.textInverse}; */
     cursor: default;
     h4 {
         font-size: 15px;
@@ -203,9 +205,9 @@ const ProjectCardBack = styled(ProjectCardShared)`
         a {
             /* display: inline-block; */
             /* min-height: 30px; */
-            font-size: 13px;
+            font-size: 15px;
             word-wrap: break-word;
-            background-color: rgba(255, 255, 255, 0.8);
+            /* background-color: rgba(255, 255, 255, 0.8); */
         }
     }
 `;
@@ -297,7 +299,7 @@ const HomeProjects = () => {
         <StyledHomeProjects id="projects">
             <Container>
                 <Flex center column fullHeight>
-                    <SectionHeader>Projects</SectionHeader>
+                    <SectionHeader primary>Projects</SectionHeader>
                     {/* <HomeProjectsDetailed /> */}
                     <ProjectsContainer
                         initial="hidden"
@@ -415,7 +417,7 @@ const HomeProjects = () => {
                                                         <>
                                                             <div>
                                                                 <div>
-                                                                    <p>Site:</p>
+                                                                    <p>LINK:</p>
                                                                     {href ? (
                                                                         <a
                                                                             href={
@@ -448,7 +450,7 @@ const HomeProjects = () => {
                                                         )} */}
                                                                 <div>
                                                                     <p>
-                                                                        Github:
+                                                                        GITHUB:
                                                                     </p>
                                                                     {github ? (
                                                                         <a

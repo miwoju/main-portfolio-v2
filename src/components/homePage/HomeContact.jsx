@@ -11,7 +11,7 @@ import { device } from "../../util/device";
 
 const StyledHomeContact = styled(motion.section)`
     padding: 100px 12px;
-    background-color: ${(props) => props.theme.primary};
+    background-color: ${(props) => props.theme.secondary};
     overflow-x: hidden;
     /* color: ${(props) => props.theme.textInverse}; */
     .input {
@@ -50,7 +50,7 @@ const Button = styled(motion.button)`
     align-self: center;
     font-size: 14px;
     cursor: pointer;
-    background-color: ${(props) => props.theme.secondary};
+    background-color: ${(props) => props.theme.background};
     color: #fff;
     font-weight: bolder;
     &:hover {
@@ -108,12 +108,13 @@ const HomeContact = () => {
             <Container>
                 <Flex fullHeight center column>
                     <SectionHeader
-                        color="#000"
+                        inverse
+                        // color="#3f3f3f"
                         subheader="Want to work on something together? Have any questions?
                         Email me at: miwoju.business@gmail.com
                     "
                     >
-                        Say Hello
+                        Contact Me
                     </SectionHeader>
                     <Form
                         ref={ref}
