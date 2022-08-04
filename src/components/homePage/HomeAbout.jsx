@@ -95,6 +95,7 @@ const AvatarIMG = styled.div`
     height: 100%;
     background: url(${selfie}) top no-repeat;
     background-size: cover;
+    max-width: 700px;
 
     @media ${device.small} {
         height: 300px;
