@@ -44,7 +44,7 @@ const TextContent = styled(motion.div)`
     /* text-align: justify; */
     /* width: 500px; */
     /* align-items: center; */
-    padding: 0 80px;
+    /* padding: 0 80px; */
     display: flex;
     flex-direction: column;
     padding: 80px 40px;
@@ -56,7 +56,7 @@ const TextContent = styled(motion.div)`
         white-space: pre-wrap;
         font-weight: 500;
         font-family: "Nunito";
-        max-width: 800px;
+        max-width: 750px;
         .italic {
             font-style: italic;
         }
