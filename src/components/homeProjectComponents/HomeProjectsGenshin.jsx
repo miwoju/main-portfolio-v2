@@ -188,9 +188,9 @@ const HomeProjectsGenshin = () => {
                     </li>
                     <li>
                         Refactor with custom hooks for performance and
-                        readability. It was originally a "for fun" project so
-                        I copied and pasted logic around because it was quick
-                        and it worked.
+                        readability. It was originally a "for fun" project so I
+                        copied and pasted logic around because it was quick and
+                        it worked.
                     </li>
                     <li>
                         Re-explore usage of WEBP. Originally opted due to weak
@@ -204,12 +204,14 @@ const HomeProjectsGenshin = () => {
                     <li>
                         Adopt ads. This project couldn't meet Google Adsense
                         requirements because it was a single page application.
-                        But other advertising methods are intrusive.
+                        But other advertising methods were intrusive.
                     </li>
                     <li>
-                        Re-work the past banners UI. I winged it at the time due
-                        to time crunch, but I could make it into its own modal
-                        with banner selections.
+                        Re-work the "past banners" UI. I winged it at the time
+                        due to time crunch and it being a silly feature. But it
+                        actually became so popular that the feature stayed. I
+                        could improve it by having its own modal for banner
+                        selections.
                     </li>
                 </ul>
             </ProjectsStickyContent>
