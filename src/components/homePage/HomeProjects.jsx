@@ -27,14 +27,14 @@ const ProjectsContainer = styled(motion.div)`
     justify-content: flex-start;
     grid-template-columns: 90px 1fr;
     border-radius: 25px;
-    box-shadow: -1px -1px 3px 0px rgba(0, 0, 0, 0.1);
+    box-shadow: -4px -4px 4px 0px rgba(0, 0, 0, 0.1);
 
     @media ${device.extraSmall} {
         grid-template-columns: 1fr;
         grid-template-rows: 60px 1fr;
     }
     &:hover {
-        box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.1);
+        /* box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.1); */
     }
     /* padding: 0 100px; */
 `;
@@ -251,7 +251,7 @@ const projectCardInnerVar = {
         boxShadow: "-2px -2px 3px 0px rgba(0, 0, 0, 0.2)",
     },
     hover: {
-        boxShadow: "-3px 3px 6px 2px rgba(0, 0, 0, 0.15)",
+        boxShadow: "-8px 2px 4px 0px rgba(0, 0, 0, 0.15)",
     },
 };
 
@@ -383,6 +383,7 @@ const HomeProjects = () => {
                                                         ? "rotate"
                                                         : "rotate-back"
                                                 }
+                                                whileHover="hover"
                                             >
                                                 <ProjectCardFront
                                                     style={{
