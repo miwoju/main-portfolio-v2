@@ -36,8 +36,7 @@ export const projectList = [
         // bgColor: "#a9def9",
         bgColor: "#00A1BE",
         href: "https://flooring.thekima.com/",
-        content:
-            "Landing page for a flooring company. Personal informations are removed",
+        content: "A business site for a flooring contract company.",
         github: "https://github.com/miwoju/flooring",
         imgSrc: "flooring.png",
         hasContent: false,
@@ -55,7 +54,7 @@ export const projectList = [
         hasContent: false,
     },
     {
-        title: "Mock Social Meda Project",
+        title: "Mock Social Media Project",
         // bgColor: "#fd5b78",
         bgColor: "#a9def9",
         // bgColor: "#00A1BE",
