@@ -182,6 +182,17 @@ const HomeProjectsGenshin = () => {
                 <p className="bold-text">Things I could improve:</p>
                 <ul>
                     <li>
+                        Implement redux to increase performance by reducing
+                        rerenders. I went with Context API as it was a small,
+                        personal project and was easier to code out quickly.
+                    </li>
+                    <li>
+                        Refactor with custom hooks for performance and
+                        readability. It was originally a "for fun" project so
+                        I copied and pasted logic around because it was quick
+                        and it worked.
+                    </li>
+                    <li>
                         Re-explore usage of WEBP. Originally opted due to weak
                         legacy support.
                     </li>
@@ -197,8 +208,8 @@ const HomeProjectsGenshin = () => {
                     </li>
                     <li>
                         Re-work the past banners UI. I winged it at the time due
-                        to time crunch, but I could make it into a modal with
-                        banner selections.
+                        to time crunch, but I could make it into its own modal
+                        with banner selections.
                     </li>
                 </ul>
             </ProjectsStickyContent>
