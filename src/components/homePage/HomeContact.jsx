@@ -110,9 +110,9 @@ const HomeContact = () => {
                     <SectionHeader
                         inverse
                         // color="#3f3f3f"
-                        subheader="Want to work on something together? Have any questions?
-                        Email me at: miwoju.business@gmail.com
-                    "
+                        subheader={
+                            "Want to work on something together? Have any questions?\nEmail me at: miwoju.business@gmail.com"
+                        }
                     >
                         Contact Me
                     </SectionHeader>

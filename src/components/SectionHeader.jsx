@@ -20,6 +20,7 @@ const Header = styled.header`
             : props.theme.background};
     /* color: ${(props) => props.theme.secondary}; */
     font-weight: 600;
+    white-space: pre-wrap;
 `;
 
 const SubHeader = styled.header`
@@ -34,6 +35,7 @@ const SubHeader = styled.header`
     font-size: 1.6rem;
     margin-top: 30px;
     max-width: 600px;
+    white-space: pre-wrap;
 `;
 
 const SectionHeader = ({
